@@ -4,11 +4,11 @@ import  Model  from "./Model";
 
 // props: name address rev[] price
 function Hotel(props) {
-let cardsty={{
+let cardsty={
   width: "20rem",
   height:'30rem',
   marginRight:"20px"
-}}
+}
   return (
     <>
       <div className="card" style={cardsty} >
