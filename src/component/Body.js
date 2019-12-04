@@ -40,7 +40,7 @@ class Body extends React.Component {
             streetAddress: titleCase(
               document.getElementById("Address").value + ""
             ),
-            website: refineweb(document.getElementById("website").value + ""),
+            website: document.getElementById("website").value + "",
             filepath: res.data.path
           };
 
@@ -165,24 +165,14 @@ function getRadioValues() {
 }
 
 export default Body;
-function refineweb(string) {
-  if (
-    string.substring(0, 3) === "www" ||
-    string.substring(0, 8) !== "https://"
-  ) {
-    string = "https://" + string;
-  }
-  return string;
-}
+
 function titleCase(str) {
   var splitStr = str.toLowerCase().split(" ");
   for (var i = 0; i < splitStr.length; i++) {
-    // You do not need to check if i is larger than splitStr length, as your for does that for you
-    // Assign it back to the array
     splitStr[i] =
       splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
   }
-  // Directly return the joined string
+
   return splitStr.join(" ");
 }
 function alertonerr(err) {
@@ -192,9 +182,9 @@ function alertonerr(err) {
 }
 function name(str) {
   let r = str.replace(/[,\/#!$%\^&\*;@\"\':{}=\-_`<>\?~()]/g, "").split(".");
-
   let rend = r[r.length - 1];
   let m = r.slice(0, r.length - 1).join("");
   m = m + "." + rend;
   return m;
 }
+

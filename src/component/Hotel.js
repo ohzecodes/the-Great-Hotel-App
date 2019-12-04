@@ -16,7 +16,7 @@ function Hotel(props) {
             <li>Website: <a href= {props.web}>{props.web}</a></li>
           
           </ul>
-          <Model rev={props.obj.rev} name={props.obj.name}/>
+          <Model rev={props.obj.rev} name={props.obj.name}  id={refinenametoid(props.obj.name)}/>
                 
         </div>
       </div>
@@ -25,4 +25,7 @@ function Hotel(props) {
 }
 
 export default Hotel;
-
+function refinenametoid(string){
+  return string.replace(/\s/g,'')
+ 
+}

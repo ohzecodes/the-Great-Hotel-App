@@ -14,7 +14,7 @@ constructor(props){
       Axios.get(`/api/city/${this.props.name}`)
       .then(res=>{
          this.setState({hotelinthiscity:res.data})
-         console.log(res.data);
+         
          }
       )
       .catch(e=>console.log(e))
@@ -27,7 +27,8 @@ constructor(props){
        <div id='wrapper' className="row">
       
          {this.state.hotelinthiscity.map((r,key)=> <Hotel key={key} 
-         obj={r} src={refineimgsrc(r.filepath) || "http://via.placeholder.com/640x360" }
+         obj={r} 
+         src={refineimgsrc(r.filepath) || "http://via.placeholder.com/640x360" }
          web={refineweb(r.website)}
          />)}
        </div>
@@ -50,3 +51,4 @@ constructor(props){
       }    
       return string;
     }
+   

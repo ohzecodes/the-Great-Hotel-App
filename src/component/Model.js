@@ -3,17 +3,18 @@ import React from "react";
 
 function Modal(props){
     var name=props.name;
-
+    var id=props.id;
+    
    
     return(
         
         <div>
             <button type="button"  id={"btn"+name} className="btn btn-primary"
-            data-toggle="modal" data-target={"#"+name}>
+            data-toggle="modal" data-target={"#"+id}>
             review
             </button>
             
-            <div className="modal fade" id={name} tabIndex="-1" >
+            <div className="modal fade" id={id} tabIndex="-1" >
             <div className="modal-dialog" >
                 <div className="modal-content">
                 <div className="modal-header">

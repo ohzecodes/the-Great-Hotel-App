@@ -6,6 +6,7 @@ some sample data has been loaded for you.
 
 * for the first form:  
  *  hotel name should be unique
+ 
  *  name, city, and streetaddress should be 5 or more charecters 
  *  Image:   
     * only 1 image is allowed per hotel   

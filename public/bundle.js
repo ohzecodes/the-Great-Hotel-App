@@ -11131,7 +11131,7 @@ function (_React$Component) {
             name: titleCase(document.getElementById("name").value + ""),
             city: titleCase(document.getElementById("city").value + ""),
             streetAddress: titleCase(document.getElementById("Address").value + ""),
-            website: refineweb(document.getElementById("website").value + ""),
+            website: document.getElementById("website").value + "",
             filepath: res.data.path
           };
 
@@ -11280,23 +11280,12 @@ function getRadioValues() {
 
 /* harmony default export */ __webpack_exports__["default"] = (Body);
 
-function refineweb(string) {
-  if (string.substring(0, 3) === "www" || string.substring(0, 8) !== "https://") {
-    string = "https://" + string;
-  }
-
-  return string;
-}
-
 function titleCase(str) {
   var splitStr = str.toLowerCase().split(" ");
 
   for (var i = 0; i < splitStr.length; i++) {
-    // You do not need to check if i is larger than splitStr length, as your for does that for you
-    // Assign it back to the array
     splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-  } // Directly return the joined string
-
+  }
 
   return splitStr.join(" ");
 }
@@ -11380,8 +11369,6 @@ function (_React$Component) {
         _this2.setState({
           hotelinthiscity: res.data
         });
-
-        console.log(res.data);
       })["catch"](function (e) {
         return console.log(e);
       });
@@ -11697,11 +11684,16 @@ function Hotel(props) {
     href: props.web
   }, props.web))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Model__WEBPACK_IMPORTED_MODULE_1__["default"], {
     rev: props.obj.rev,
-    name: props.obj.name
+    name: props.obj.name,
+    id: refinenametoid(props.obj.name)
   }))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Hotel);
+
+function refinenametoid(string) {
+  return string.replace(/\s/g, '');
+}
 
 /***/ }),
 
@@ -11780,15 +11772,16 @@ __webpack_require__.r(__webpack_exports__);
 
 function Modal(props) {
   var name = props.name;
+  var id = props.id;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
     id: "btn" + name,
     className: "btn btn-primary",
     "data-toggle": "modal",
-    "data-target": "#" + name
+    "data-target": "#" + id
   }, "review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal fade",
-    id: name,
+    id: id,
     tabIndex: "-1"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-dialog"

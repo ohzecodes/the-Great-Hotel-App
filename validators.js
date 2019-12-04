@@ -32,6 +32,19 @@ exports.form1 = [
     .trim()
     .isLength({min:8}).withMessage("must be 8+ chars")
     .isURL()
+    .customSanitizer(
+        string=> {
+            if (
+              string.substring(0, 3) === "www" ||
+              string.substring(0, 8) !== "https://"
+            ) {
+              string = "https://" + string;
+            }
+            return string;
+          }
+
+
+    )
 ]
 exports.form2=[
     
