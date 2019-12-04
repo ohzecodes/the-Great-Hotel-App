@@ -1,11 +1,12 @@
 using bootstrap with fontawesome for search bar
 bootstrap : https://getbootstrap.com/  
-font Awesome: https://fontawesome.com/  
+font Awesome: https://fontawesome.com/   
 logo -- made with https://looka.com !!!   
-some sample data has been loaded for you.
+
+some sample data has been loaded for you. :)
 
 * for the first form:  
- *  hotel name should be unique
+ *  hotel name should be unique 
  
  *  name, city, and streetaddress should be 5 or more charecters 
  *  Image:   
@@ -42,6 +43,13 @@ These elements are used from bootstap:
 https://getbootstrap.com/docs/4.0/components/card/  --> for displaying the hotel element  
 https://getbootstrap.com/docs/4.0/components/modal/ --> for displaying comments  
 https://getbootstrap.com/docs/4.0/layout/grid/ --> grid system
+
+
+
+serving the proj at https://thegreathotelapp.herokuapp.com/ 
+
+This Manual/readme page is also accesible via: 
+https://thegreathotelapp.herokuapp.com/man 
 
 
 
