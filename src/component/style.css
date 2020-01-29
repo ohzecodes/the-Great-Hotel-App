@@ -1,0 +1,36 @@
+#file::-webkit-file-upload-button{
+    background-color: black;
+    color:white;
+    opacity: 0;
+    padding: 100;
+    border: 0;
+}
+/* rgb(29, 35, 38); */
+label{
+    text-align: center;
+}
+
+
+.form-check.form-check-inline{
+
+        margin:auto;
+}
+
+.formqwe{
+    background: white;
+    border:2px solid black;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    padding: 20px;
+    height: 90%;
+    border-radius: 60px;
+}
+.forml{
+    text-align: center;
+}
+
+#file{
+    background: black;
+    color: white;
+    text-align: center !important;
+}
