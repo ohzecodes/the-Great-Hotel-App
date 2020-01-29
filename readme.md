@@ -57,5 +57,4 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-file-upload-button
 
 ## Hosting
 serving the proj at https://thegreathotelapp.herokuapp.com/ 
-This Manual/readme page is also accesible via:  https://thegreathotelapp.herokuapp.com/man  OR 
-localhost:8080/man 
+
