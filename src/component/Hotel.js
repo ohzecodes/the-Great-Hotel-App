@@ -4,6 +4,7 @@ import  Model  from "./Model";
 
 // props: name address rev[] price
 function Hotel(props) {
+  console.log("hie")
 let cardsty={
   width: "20rem",
   height:'30rem',

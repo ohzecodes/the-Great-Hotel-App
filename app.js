@@ -2,7 +2,6 @@ let express = require("express");
 let app = express();
 var fs = require('fs');
 app.use(express.json()); // this is important for req.body
-
 const connection = require("./db/connection");
 const hotelS = require("./models/hotel");
 const reviewS = require("./models/reviews");
@@ -26,10 +25,7 @@ const upload = multer({
   }
 });
 
-require('express-readme')(app, {
-  filename: 'readme.md',
-  routes: ['/man', '/readme']
-});
+
 
 app.get("/", (req, res) => {
   res.status(200).send("./public/index.html");
@@ -95,7 +91,7 @@ app.post("/add/reviews", m.form2, (req, res) => {
   const errors = validationResult(req);
   console.log(req.body);
   if (errors.isEmpty()) {
-    
+
     let review = new reviewS(req.body);
 
     review

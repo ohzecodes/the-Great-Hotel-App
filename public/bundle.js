@@ -1830,7 +1830,7 @@ exports.push([module.i, "/*!\n * Bootstrap v4.3.1 (https://getbootstrap.com/)\n 
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "#file::-webkit-file-upload-button{\n    background-color: black;\n    color:white;\n    opacity: 0;\n    padding: 100;\n    border: 0;\n}\n/* rgb(29, 35, 38); */\nlabel{\n    text-align: center;\n}\n\n\n.form-check.form-check-inline{\n\n        margin:auto;\n}\n\n.formqwe{\n    background: white;\n    border:2px solid black;\n    margin-bottom: 5%;\n    margin-top: 5%;\n    padding: 20px;\n    height: 90%;\n    border-radius: 60px;\n}\n.forml{\n    text-align: center;\n}\n\n#file{\n    background: black;\n    color: white;\n    text-align: center !important;\n}\n", ""]);
+exports.push([module.i, ".alert {\n    margin-bottom: 0;\n    text-align: center;\n    padding: 8px;\n    color: #fff;\n    border-color: #000;\n    border-radius: 0;\n}\n.alert-info {\n    \n    background-color: rgb(6, 69, 82);\n\n}\n\n#file::-webkit-file-upload-button{\n    background-color: black;\n    color:white;\n    opacity: 0;\n    padding: 100;\n    border: 0;\n}\n/* rgb(29, 35, 38); */\nlabel{\n    text-align: center;\n}\n\n\n.form-check.form-check-inline{\n\n        margin:auto;\n}\n\n.formqwe{\n    background: white;\n    border:2px solid black;\n    margin-bottom: 5%;\n    margin-top: 5%;\n    padding: 20px;\n    height: 90%;\n    border-radius: 60px;\n}\n.forml{\n    text-align: center;\n}\n\n#file{\n    background: black;\n    color: white;\n    text-align: center !important;\n}\n", ""]);
 
 
 /***/ }),
@@ -11664,6 +11664,7 @@ __webpack_require__.r(__webpack_exports__);
  // props: name address rev[] price
 
 function Hotel(props) {
+  console.log("hie");
   var cardsty = {
     width: "20rem",
     height: '30rem',
@@ -11719,6 +11720,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header */ "./src/component/header.js");
 /* harmony import */ var _Body__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Body */ "./src/component/Body.js");
+/* harmony import */ var _Topbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Topbar */ "./src/component/Topbar.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11741,6 +11743,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+var n = "The website uses heroku for its deployment where the filesystem is ephemeral. ";
+
 var MainComp =
 /*#__PURE__*/
 function (_React$Component) {
@@ -11755,7 +11759,10 @@ function (_React$Component) {
   _createClass(MainComp, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Body__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Topbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        txt: n,
+        url: "https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Body__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
@@ -11959,6 +11966,38 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Sb);
+
+/***/ }),
+
+/***/ "./src/component/Topbar.js":
+/*!*********************************!*\
+  !*** ./src/component/Topbar.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function Topbar(prop) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: prop.url
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "alert alert-info alert-dismissible"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "close"
+  }, "x"), prop.txt, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: {
+      color: "#0079fa",
+      textDecoration: "underline"
+    }
+  }, "Click here to learn more")));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Topbar);
 
 /***/ }),
 
