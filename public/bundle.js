@@ -11986,10 +11986,13 @@ function Topbar(prop) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: prop.url
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "alert alert-info alert-dismissible"
+    "class": "alert alert-info alert-dismissible",
+    role: "alert"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "close"
-  }, "x"), prop.txt, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    "class": "close",
+    "data-dismiss": "alert",
+    type: "button"
+  }, "\xD7"), prop.txt, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     style: {
       color: "#0079fa",
       textDecoration: "underline"
