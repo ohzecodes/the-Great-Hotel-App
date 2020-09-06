@@ -50,7 +50,7 @@ some sample data has been loaded for you. :)
     * font Awesome: https://fontawesome.com/   
     * logo -- made with https://looka.com !!!   
 
-NOTE: some of the styleset are only implemented in some browswers but rest in funchionality everything works. the styles are there for just styling!!    
+file upload button may differ depending on the browser
 https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-file-upload-button
     
 
