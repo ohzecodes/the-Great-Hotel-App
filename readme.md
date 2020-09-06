@@ -24,7 +24,6 @@ some sample data has been loaded for you. :)
 ## References 
 #### middleware
 *  multer--> filehandling 
-*  express-readme --> for the man page https://thegreathotelapp.herokuapp.com/man 
 
 
 * sample data images  
