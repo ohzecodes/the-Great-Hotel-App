@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "2c83151265158867fd98c5b11839469a.png";
+module.exports = __webpack_require__.p + "f3864b9e716dacac5dea1a076bfff030.png";
 
 /***/ }),
 
@@ -12061,9 +12061,9 @@ function (_React$Component) {
         "float": "right"
       };
       var logoStyle = {
-        width: 100,
+        width: "100%",
         height: 100,
-        marginLeft: "25%"
+        marginLeft: "0%"
       };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row ",
@@ -12071,10 +12071,7 @@ function (_React$Component) {
           backgroundColor: "black"
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-2 ",
-        style: {
-          background: 'rgb(29, 35, 38)'
-        }
+        className: "col-2 "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: __webpack_require__(/*! ../../logo.png */ "./logo.png"),
         style: logoStyle
