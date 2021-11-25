@@ -1,3 +1,14 @@
+.card{
+    width: 314px ;
+    height: 440px;
+    margin-left: 20px;
+    flex-wrap:row;
+    margin-top: 20px;
+}
+
+#root,.wrapper{
+    overflow-x: hidden;
+}
 .alert {
     margin-bottom: 0;
     text-align: center;
