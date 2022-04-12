@@ -7,7 +7,8 @@
     "dev": "nodemon app.js",
     "start": "node app.js",
     "watch": "webpack --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "key": "chmod 764 ./key.sh && ./key.sh"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +18,7 @@
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "babel-loader": "^8.0.6",
     "bootstrap": "^4.3.1",
     "css-loader": "^3.2.0",
@@ -25,13 +26,13 @@
     "ejs": "^2.7.4",
     "express": "^4.17.1",
     "express-validator": "^6.3.0",
-    "mongodb": "^4.2.0",
     "mongoose": "^5.7.12",
     "multer": "^1.4.2",
     "nodemon": "^2.0.1",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
+    "react-icons": "^4.3.1",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"

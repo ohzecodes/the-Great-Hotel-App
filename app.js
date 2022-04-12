@@ -3,6 +3,7 @@ let app = express();
 var fs = require("fs");
 var mongoose = require("mongoose");
 app.use(express.json()); // this is important for req.body
+
 const connection = require("./db/connection");
 const hotelS = require("./models/hotel");
 const reviewS = require("./models/reviews");
@@ -27,39 +28,28 @@ const upload = multer({
 });
 
 app.get("/", (req, res) => {
-  res.status(200).send("./public/index.html");
+  if (mongoerror == undefined) res.status(200).send("./public/index.html");
+  else {
+    res.status(400).send("mongoerror");
+  }
 });
-
+require("./extraroutes")(app, hotelS);
 app.get("/api/all", (req, res) => {
-  hotelS
-    .find()
-    .then((result) => {
-      res.status(200).send(result);
-    })
-    .catch((e) => res.status(400).send(e));
-});
-
-app.get("/api/city/:cities", (req, res) => {
-  hotelS
-    .find({ city: req.params.cities })
-    .populate("rev")
-    .then((results) => {
-      res.status(200).send(results);
-    })
-    .catch((error) => res.status(400).send(error));
-});
-
-app.get("/api/city/:cities/hotel/:hotel", (req, res) => {
-  hotelS
-    .find({
-      city: req.params.cities,
-      name: req.params.hotel,
-    })
-    .populate("rev")
-    .then((results) => {
-      res.status(200).send(results);
-    })
-    .catch((error) => res.status(400).send(error));
+  hotelS.find().then(() => {
+    hotelS
+      .aggregate([
+        {
+          $lookup: {
+            from: "reviews",
+            localField: "rev",
+            foreignField: "_id",
+            as: "rev",
+          },
+        },
+      ])
+      .then((r) => res.status(200).send(r))
+      .catch((e) => res.status(400).send(e));
+  });
 });
 
 app.post("/images", upload.single("hotelImg"), (req, res) => {
@@ -92,17 +82,36 @@ app.post("/add/reviews", m.form2, (req, res) => {
       .save()
       .then((result) => {
         console.log("id", result._id);
-        hotelS.findOne({ name: req.body.name }).then((res) => {
-          let p = res.rev.slice(0);
-          p.push(result._id);
-          console.log(p);
-          hotelS
-            .findOneAndUpdate({ name: req.body.name }, { rev: p })
-            .then(console.log("sucess"))
-            .catch((e) => console.log(e));
-        });
+        hotelS
+          .findOne({ name: req.body.name })
+          .then((res) => {
+            let p = res.rev.slice(0);
+            p.push(result._id);
+            console.log(p);
 
-        res.status(200).send(result);
+            hotelS
+              .findOneAndUpdate({ name: req.body.name }, { rev: p })
+              .then(console.log("sucess"))
+              .catch((e) => console.log(e));
+          })
+          .then((result) => {
+            hotelS
+              .aggregate([
+                {
+                  $lookup: {
+                    from: "reviews",
+                    localField: "rev",
+                    foreignField: "_id",
+                    as: "rev",
+                  },
+                },
+              ])
+              .then((result) => {
+                console.log(result);
+                res.status(200).send(result);
+              })
+              .catch((err) => {});
+          });
       })
       .catch((error) => {
         res.status(400).send(error);
@@ -115,12 +124,11 @@ app.post("/add/reviews", m.form2, (req, res) => {
 
 connection
   .once("open", () => {
-    console.log("Connected to db");
     app.set("port", process.env.PORT || 8080);
     let server = app.listen(app.settings.port, () => {
       console.log("Server ready on ", app.settings.port);
     });
   })
-  .catch((err) => console.error(err));
+  .catch((err) => {});
 
 // https://youtu.be/srPXMt1Q0nY?t=1007

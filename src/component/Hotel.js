@@ -3,6 +3,7 @@ import Model from "./Model";
 
 // props: name address rev[] price
 function Hotel(props) {
+  console.log(props.obj.rev);
   return (
     <>
       <div className="card">
