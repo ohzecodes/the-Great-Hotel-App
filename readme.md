@@ -1,6 +1,7 @@
-## how to use
+## Usage
 
-- #### for the first form:
+#### for the first form:
+
 - hotel name should be unique
 - name, city, and streetaddress should be 5 or more charecters
 - Image:
@@ -48,16 +49,12 @@
   - https://getbootstrap.com/docs/4.0/components/modal/ --> for displaying comments
   - https://getbootstrap.com/docs/4.0/layout/grid/ --> grid system
 
-- using bootstrap with fontawesome for search bar
+- using bootstrap with fontawesome
   - bootstrap : https://getbootstrap.com/
   - font Awesome: https://fontawesome.com/
   - logo -- https://looka.com/editor/86952643
-
-NOTE: some of the styleset are only implemented in some browswers but rest in funchionality everything works. the styles are there for just styling!!  
-https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-file-upload-button
+  - react icons -- https://react-icons.github.io/react-icons/
 
 ## Hosting
 
-serving the proj at https://thegreathotelapp.herokuapp.com/
-This Manual/readme page is also accesible via: https://thegreathotelapp.herokuapp.com/man OR
-localhost:8080/man
+Serving the proj at https://thegreathotelapp.herokuapp.com/

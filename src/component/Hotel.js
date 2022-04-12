@@ -1,14 +1,13 @@
 import React from "react";
 import Model from "./Model";
 
-// props: name address rev[] price
 function Hotel(props) {
   console.log(props.obj.rev);
   return (
     <>
       <div className="card">
         <img
-          src={props.src}
+          src={props.src || "public/uploads/placeholder.png"}
           className="card-img"
           style={{ maxHeight: 243 }}
           alt={"A picture of " + props.obj.name}
