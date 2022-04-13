@@ -1,6 +1,6 @@
 import React from "react";
 import Model from "./Model";
-
+import axios from "axios";
 function Hotel(props) {
   console.log(props.obj.rev);
   let a = "";
