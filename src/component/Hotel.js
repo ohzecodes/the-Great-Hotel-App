@@ -1,11 +1,10 @@
 import React from "react";
 import Model from "./Model";
-import axios from "axios";
+import Axios from "axios";
 function Hotel(props) {
   console.log(props.obj.rev);
   let a = "";
-  axios
-    .get(props.src)
+  Axios.get(props.src)
     .then(() => {
       a = props.src;
     })
