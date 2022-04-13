@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+
 import Model from "./Model";
 import Axios from "axios";
 function Hotel(props) {
   console.log(props.obj.rev);
-  let a = "";
+  const [a, seta] = useState("");
+
   Axios.get(props.src)
     .then(() => {
-      a = props.src;
+      seta(props.src);
     })
     .catch(() => {
-      a = "./uploads/placeholder.png";
+      seta("./uploads/placeholder.png");
     });
 
   return (
