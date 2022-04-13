@@ -3,11 +3,21 @@ import Model from "./Model";
 
 function Hotel(props) {
   console.log(props.obj.rev);
+  let a = "";
+  axios
+    .get(props.src)
+    .then(() => {
+      a = props.src;
+    })
+    .catch(() => {
+      a = "./uploads/placeholder.png";
+    });
+
   return (
     <>
       <div className="card">
         <img
-          src={props.src || "public/uploads/placeholder.png"}
+          src={a}
           className="card-img"
           style={{ maxHeight: 243 }}
           alt={"A picture of " + props.obj.name}
