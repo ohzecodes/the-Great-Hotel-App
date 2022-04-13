@@ -13277,10 +13277,16 @@ __webpack_require__.r(__webpack_exports__);
 
 function Hotel(props) {
   console.log(props.obj.rev);
+  var a = "";
+  axios.get(props.src).then(function () {
+    a = props.src;
+  })["catch"](function () {
+    a = "./uploads/placeholder.png";
+  });
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: props.src || "public/uploads/placeholder.png",
+    src: a,
     className: "card-img",
     style: {
       maxHeight: 243
