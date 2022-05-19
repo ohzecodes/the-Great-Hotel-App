@@ -10,6 +10,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "key": "chmod 764 ./key.sh && ./key.sh"
   },
+  "engines" : {
+    "npm" : "6.14.12",
+    "node" : "14.16.1"
+  },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
