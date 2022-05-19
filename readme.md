@@ -8,7 +8,7 @@ The purpose of this project was to demonstrate the MERN stack skills that we acq
 
 ## Project timeline.
 
-The class was given 10 days to build an entire application with these [technologies](#Technologies-used)
+The class was given 15 days to build an entire application with these [technologies](#Technologies-used)
 
 - My technical skillset
 - Ability to learn fast
