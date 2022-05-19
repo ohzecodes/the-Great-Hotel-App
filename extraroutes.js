@@ -1,6 +1,6 @@
 module.exports = (app, hotelS) => {
   app.get("/api/", (req, res) => {
-    res.send("200");
+    res.redirect("/api/all");
   });
   app.get("/api/city/:cities", (req, res) => {
     hotelS

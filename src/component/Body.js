@@ -4,6 +4,7 @@ import Form1 from "./Form1";
 import Axios from "axios";
 import Form2 from "./Form2";
 import City from "./City";
+import { understated_versatile } from "./color";
 
 function groupBy(objectArray = [], property = "") {
   if (objectArray !== undefined)
@@ -110,22 +111,27 @@ class Body extends React.Component {
   }
   render() {
     const h = this.state.hotel.map((h) => h.name);
-
+    // console.log(Trendy_Metropolitan.bg);
     return (
       <>
-        <div className="row" style={{ backgroundColor: "black" }}>
+        <div className="row" style={{ background: understated_versatile.bg }}>
           <div className="col-sm-6">
             <Form1
+              bg={understated_versatile.fog}
               FShandle={this.fileSectedhandle}
               submitform={this.hotelFormsubmit}
             />
           </div>
           <div className="col-sm-6">
-            <Form2 Hotelnames={h} submitform={this.Handleform2submit} />
+            <Form2
+              bg={understated_versatile.icicle}
+              Hotelnames={h}
+              submitform={this.Handleform2submit}
+            />
           </div>
         </div>
         {Object.values(groupBy(this.state.hotel, "city")).map((hotel, k) => (
-          <City key={k} hotel={hotel}></City>
+          <City key={k} hotel={hotel} citynum={k}></City>
         ))}
       </>
     );

@@ -1,19 +1,15 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sb from "./Sb";
+
 class Header extends React.Component {
   render() {
-    let SearchStyle = {
-      marginLeft: 12,
-      PaddingLeft: 0,
-      color: "white",
-      float: "right",
-    };
-
     return (
-      <div className="row " style={{ backgroundColor: "black" }}>
+      <div
+        className="row"
+        style={{ backgroundColor: "black", borderBottom: "2px dotted white" }}
+      >
         <div
-          className="col-2 "
+          className="col-12"
           style={{
             display: "flex",
             justifyContent: "center",
@@ -29,7 +25,6 @@ class Header extends React.Component {
             }}
           />
         </div>
-        <Sb SearchStyle={SearchStyle} />
       </div>
     );
   }

@@ -2,7 +2,9 @@ let express = require("express");
 let app = express();
 var fs = require("fs");
 var mongoose = require("mongoose");
-app.use(express.json()); // this is important for req.body
+app.use(express.json());
+
+app.set("view engine", "ejs");
 
 const connection = require("./db/connection");
 const hotelS = require("./models/hotel");
@@ -19,7 +21,6 @@ const storage = multer.diskStorage({
     cb(null, file.originalname);
   },
 });
-
 const upload = multer({
   storage: storage,
   limits: {
@@ -28,11 +29,9 @@ const upload = multer({
 });
 
 app.get("/", (req, res) => {
-  if (mongoerror == undefined) res.status(200).send("./public/index.html");
-  else {
-    res.status(400).send("mongoerror");
-  }
+  res.status(200).send("./public/index.html");
 });
+
 require("./extraroutes")(app, hotelS);
 app.get("/api/all", (req, res) => {
   hotelS.find().then(() => {
@@ -122,13 +121,40 @@ app.post("/add/reviews", m.form2, (req, res) => {
   }
 });
 
-connection
-  .once("open", () => {
+app.get("/:city/:hotel", (req, res) => {
+  const city = req.params.city;
+  const hotel = req.params.hotel;
+
+  hotelS
+    .findOne({ city: city, name: hotel })
+    .populate({ path: "rev" })
+    .then((e) => {
+      const array1 = e.filepath.split("/");
+      e.host = req.headers.host;
+      array1.shift();
+      e.filepath = array1.join("/");
+      e.avgrating =
+        e.rev.map((m) => m.rating).reduce((prev, c) => prev + c, 0) /
+        e.rev.length;
+
+      res.render("onehotel", e);
+    })
+    .catch((e) => res.send("not found"));
+});
+
+app.get("*", function (req, res) {
+  res.status(404).send("404 error");
+});
+
+try {
+  connection.once("open", () => {
     app.set("port", process.env.PORT || 8080);
     let server = app.listen(app.settings.port, () => {
       console.log("Server ready on ", app.settings.port);
     });
-  })
-  .catch((err) => {});
+  });
+} catch (e) {
+  console.log("first :>> ");
+}
 
 // https://youtu.be/srPXMt1Q0nY?t=1007

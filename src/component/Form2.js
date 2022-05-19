@@ -16,7 +16,11 @@ class Form2 extends React.Component {
   }
   render() {
     return (
-      <form className="formqwe" onSubmit={this.props.submitform}>
+      <form
+        className="formqwe"
+        style={{ background: this.props.bg }}
+        onSubmit={this.props.submitform}
+      >
         <div className="form-group row"></div>
         <label className="col-sm-12 forml">Rate Your Stay</label>
         <div />
@@ -41,13 +45,14 @@ class Form2 extends React.Component {
             getr={this.getr}
             hoverColor="grey"
             clickColor="black"
+            initcolor={this.props.bg}
             style={{
               display: "flex",
               width: 250,
               height: "50px",
               justifyContent: "center",
               alignItems: "center",
-              background: "white",
+              background: "inherit",
             }}
           />
           <p id="rating" hidden>

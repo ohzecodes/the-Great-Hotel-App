@@ -1,0 +1,276 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script   src="https://code.jquery.com/jquery-3.6.0.min.js"   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="   crossorigin="anonymous"></script>
+<style>
+  .gobackbtn{
+    text-align: center;
+    color:darkcyan;
+    text-decoration: none;
+  }
+  .gobackbtn:hover{
+    color: black;
+    background-color: azure;
+  }
+
+ .btndiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stars>* {
+    padding: 0 !important;
+  }
+
+  p.review {
+    font-size: large;
+    margin-left: 2rem;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .info> .img {
+    border-radius: 100%;
+    margin-top: 20%;
+    width: 300px;
+  }
+  .info> ul{
+    display: block;
+    list-style-type: none;
+    margin-top: 10%;
+  }
+
+  .info  ul>li{
+    margin-top: 1rem;
+  }
+  .average-rating{
+    margin-top: 3rem;
+  }
+  .average-rating>svg{
+    height: 50;
+    width: 50;
+  }
+  .reviewandrate {
+    display: flex;
+    justify-content: left;
+    border: 2px solid black;
+    margin-top: 20px;
+    border-radius: 10px;
+    align-content: center;
+    height: 100px;
+
+  }
+
+ .reviewandrate>.stars>svg{
+   width:9rem;
+   height:5rem;
+  
+  }
+  .hidden{
+  display:none;
+  }
+  .container {
+    height: 100vh;
+  }
+  
+  .hover{
+    width: min-content; 
+    text-align:center;
+    background-color: black;
+    color: white;
+    text-transform: capitalize;
+    padding: 2px;
+    border-bottom-left-radius: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    height: 97px
+}
+@media (max-width:1410px) {
+  .reviewandrate>.stars>svg{
+   width:7rem;
+   height:5rem;
+  
+  }
+}
+@media (max-width:1210px) {
+  .reviewandrate>.stars>svg{
+   width:6rem;
+   height:5rem;
+  
+  }
+  
+}
+@media (max-width:1010px) {
+  .reviewandrate>.stars>svg{
+   width:3rem;
+   height:3rem;
+  
+  }
+  
+}
+
+
+
+</style>
+
+<body  style="background-color:#fff;">
+
+  <header>
+
+    <div className="row" style='display: flex;background-color:black'>
+      <div class="col-sm-1 btn btndiv">
+        <a class="gobackbtn btn" href=http://<%=host+"/" %>>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+          </svg> GO BACK </a>
+      </div>
+      <div class="col-sm-10 " style='
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    '>
+        <img src=//<%=host%>/logo.png style='
+        width: 200px;
+        height: 100;
+        margin-left: 0%;
+        ' />
+      </div>
+
+    </div>
+
+  </header>
+
+  <main >
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-4 info">
+          <img class="img" id="image-hotel" src=//<%=host+"/"+ filepath %>  />
+
+          <ul>
+            <li>Name: <%=name %></li>
+            <li>City: <%=city %></li>
+            <li>Street Address: <%=streetAddress %></li>
+            <li style="text-align: center;"><a href=<%=website %>><%=website %></a> </li>
+            
+          </ul>
+       
+          <p class="average-rating">
+            <% for(let i=0;i<avgrating;i++){%>
+              <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor"
+                class="bi bi-star-fill" viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+              <% } %>
+                <% for(let i=avgrating;i<5;i++){%>
+                  <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor"
+                    class="bi bi-star" viewBox="0 0 16 16">
+                    <path
+                      d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                  </svg>
+                  <% } %>
+          </p>
+
+        </div>
+      
+        <div class="col-sm-8">
+
+          <% rev.forEach((rev)=> { %>
+            <div class="reviewandrate" id=<%= rev.id%> >
+             <p class="hover"> hover to read<p>
+              <p class="stars">
+
+                <% for(let i=0;i<rev.rating;i++){%>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-star-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                  </svg>
+                  <% } %>
+                    <% for(let i=rev.rating;i<5;i++){%>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star" viewBox="0 0 16 16">
+                        <path
+                          d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                      </svg>
+                      <% } %>
+              </p>
+              <div class="reviewcontainer">
+                <p class="review">
+                  <%=rev.review%>
+                </p>
+              </div>
+            </div>
+            <% }); %>
+
+
+        </div>
+      
+      </div>
+    </div>
+    </div>
+    </div>
+  </main>
+
+
+
+  <script>
+ let pic='//<%=host+"/"+filepath %>'
+function checkIfImageExists(url, callback) {
+    const img = new Image();
+    img.src = url;
+
+    if (img.complete) {
+      callback(true);
+    } else {
+      img.onload = () => {
+        callback(true);
+      };
+      
+      img.onerror = () => {
+        callback(false);
+      };
+    }
+  }
+  // body.onload=function () {  }
+  checkIfImageExists(pic, (exists) => {
+      if (!exists) {
+      $("#image-hotel").attr("src","//<%=host%>/uploads/placeholder.png");
+        // Success fail
+      } else{
+        console.log("okay")
+      }
+    });
+
+
+
+
+$(".reviewcontainer").addClass("hidden")
+  $(".reviewandrate").hover(
+  //   mouseEnter
+  (e)=>{
+    const target="#"+e.currentTarget.id;
+
+  $(`${target}>.reviewcontainer`).removeClass("hidden")
+    $(`${target}>.stars`).addClass("hidden")
+  }, 
+  // mouseLeave
+  (e)=>{
+    const target="#"+e.currentTarget.id;
+   $(`${target}>.reviewcontainer`).addClass("hidden")
+    $(`${target}>.stars`).removeClass("hidden")
+ }                        
+)
+
+
+
+  </script>
+</body>

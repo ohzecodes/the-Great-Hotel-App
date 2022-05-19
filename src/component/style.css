@@ -1,13 +1,16 @@
 .card{
     width: 314px ;
-    height: 440px;
+    height: 452px;
     margin-left: 20px;
     flex-wrap:row;
     margin-top: 20px;
 }
+ input.form-control,textarea.form-control, select.form-control{
+    background-color: unset;border: 1px solid black;
+}
 
 #root,.wrapper{
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .alert {
     margin-bottom: 0;

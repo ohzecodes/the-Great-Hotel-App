@@ -17,9 +17,10 @@ export default function Rating(props) {
     let s1 = {
       cursor: "pointer",
       width: W / Tstars + "px",
-      fill: "white",
+      fill: props.initcolor || "white",
       stroke: "black",
     };
+
     if (i <= hover) {
       s1 = { ...s1, fill: props.hoverColor };
     }
