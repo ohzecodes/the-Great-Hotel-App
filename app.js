@@ -139,7 +139,7 @@ app.get("/:city/:hotel", (req, res) => {
 
       res.render("onehotel", e);
     })
-    .catch((e) => res.send(e + "not found"));
+    .catch((e) => res.send("not found"));
 });
 
 app.get("*", function (req, res) {
