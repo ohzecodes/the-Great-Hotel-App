@@ -1,7 +1,7 @@
 {
   "name": "2600proj",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Overview",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
@@ -10,11 +10,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "key": "chmod 764 ./key.sh && ./key.sh"
   },
-  "engines" : {
-    "npm" : "6.14.12",
-    "node" : "14.16.1"
+  "engines": {
+    "npm": "6.14.12",
+    "node": "14.16.1"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -43,8 +42,16 @@
     "webpack-cli": "^3.3.10"
   },
   "devDependencies": {
-      "glob-parent": ">=5.1.2",
+    "glob-parent": ">=5.1.2",
     "file-loader": "^4.3.0",
     "url-loader": "^2.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ohzecodes/theGreatHotelApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ohzecodes/theGreatHotelApp/issues"
+  },
+  "homepage": "https://github.com/ohzecodes/theGreatHotelApp#readme"
 }
