@@ -1,22 +1,5 @@
 import React, { useState } from "react";
 
-function checkIfImageExists(url, callback) {
-  const img = new Image();
-  img.src = url;
-
-  if (img.complete) {
-    callback(true);
-  } else {
-    img.onload = () => {
-      callback(true);
-    };
-
-    img.onerror = () => {
-      callback(false);
-    };
-  }
-}
-
 function Stars(props) {
   let n = [...Array(props.avg).keys()].map((e, key) => (
     <svg
@@ -52,28 +35,18 @@ function Stars(props) {
 }
 
 function Hotel(props) {
-  const [a, seta] = useState("");
   const { obj } = props;
   const { _id, city, filepath, name, rev, streetAddress, website } = obj;
 
-  checkIfImageExists(filepath, (exists) => {
-    if (exists) {
-      // Success code
-      seta(filepath);
-    } else {
-      // Fail code
-      seta("./uploads/placeholder.png");
-    }
-  });
   let av =
     rev.map((e) => e.rating).reduce((prev, c) => prev + c, 0) / rev.length;
-  let basedon = rev.length;
   return (
     <>
       <div className="card" style={{ border: 0 }}>
         <img
-          src={a}
+          src={filepath}
           className="card-img"
+          height="243px"
           style={{
             height: 243,
             border: "1px solid white",
@@ -103,7 +76,7 @@ function Hotel(props) {
             }}
           >
             <Stars avg={av} />
-            <p>{basedon}</p>
+            <p>{rev.length}</p>
           </div>
         </div>
         <a

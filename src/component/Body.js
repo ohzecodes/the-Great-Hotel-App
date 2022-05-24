@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./style.css";
 import Form1 from "./Form1";
 import Axios from "axios";
 import Form2 from "./Form2";
-import City from "./City";
+const City = React.lazy(() => import(/* webpackPreload: true */ "./city"));
 import { understated_versatile } from "./color";
 
 function groupBy(objectArray = [], property = "") {
@@ -130,8 +130,12 @@ class Body extends React.Component {
             />
           </div>
         </div>
+
         {Object.values(groupBy(this.state.hotel, "city")).map((hotel, k) => (
-          <City key={k} hotel={hotel} citynum={k}></City>
+          <Suspense key={k} fallback={<p>loading...</p>}>
+            {" "}
+            <City key={k} hotel={hotel} citynum={k}></City>
+          </Suspense>
         ))}
       </>
     );

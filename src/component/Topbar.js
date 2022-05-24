@@ -7,7 +7,7 @@ function Topbar(prop) {
           ×
         </button>
         {prop.txt}
-        <span style={{ color: "#0079fa", textDecoration: "underline" }}>
+        <span style={{ color: "white", textDecoration: "underline" }}>
           Click here to learn more
         </span>
       </div>

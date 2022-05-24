@@ -18,6 +18,7 @@ class Header extends React.Component {
         >
           <img
             src="./logo.png"
+            alt="the great hotel app logo"
             style={{
               width: "200px",
               height: 100,

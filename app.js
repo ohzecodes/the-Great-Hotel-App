@@ -5,7 +5,6 @@ var mongoose = require("mongoose");
 app.use(express.json());
 
 app.set("view engine", "ejs");
-
 const connection = require("./db/connection");
 const hotelS = require("./models/hotel");
 const reviewS = require("./models/reviews");
@@ -46,7 +45,18 @@ app.get("/api/all", (req, res) => {
           },
         },
       ])
-      .then((r) => res.status(200).send(r))
+      .then((r) => {
+        // checks if image not in the server sets filepath of object to false, v to 1, indicating that the hotel has been changed
+        const refinedobj = r.map((e) => {
+          if (!fs.existsSync(e.filepath)) {
+            return { ...e, filepath: false, __v: 1 };
+          } else {
+            return e;
+          }
+        });
+
+        res.status(200).send(refinedobj);
+      })
       .catch((e) => res.status(400).send(e));
   });
 });

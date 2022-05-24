@@ -1,7 +1,14 @@
 import React from "react";
 import Hotel from "./Hotel";
 import { Trendy_Metropolitan } from "./color";
-// props: name of the city
+
+function refineweb(string) {
+  if (string.substring(0, 8) !== "https://") {
+    string = "https://" + string;
+  }
+  return string;
+}
+
 class City extends React.Component {
   constructor(props) {
     super(props);
@@ -19,9 +26,11 @@ class City extends React.Component {
 
     console.log(bg);
     const name = this.props.hotel[0].city;
-    console.log(this.props.hotel);
+
     this.props.hotel.forEach((element) => {
-      element.filepath = "./" + element.filepath.split("/").slice(1).join("/");
+      element.filepath = !element.filepath
+        ? "./uploads/placeholder.png"
+        : "./" + element.filepath.split("/").slice(1).join("/");
 
       element.website = refineweb(element.website);
       console.log(element.website);
@@ -58,10 +67,3 @@ class City extends React.Component {
 }
 
 export default City;
-
-function refineweb(string) {
-  if (string.substring(0, 8) !== "https://") {
-    string = "https://" + string;
-  }
-  return string;
-}
