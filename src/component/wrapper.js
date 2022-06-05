@@ -25,7 +25,7 @@ const Wrapper = ({ hotel, Handleform2submit, submit, clearMsgForm2 }) => {
     paddingBottom: "10px",
     paddingTop: "10px",
   };
-
+  const [rating, setrating] = useState(-1);
   const reset = () => {
     setrating(-1);
     document.getElementById("Textarea").value = "";
@@ -72,7 +72,6 @@ const Wrapper = ({ hotel, Handleform2submit, submit, clearMsgForm2 }) => {
     }
   }
 
-  const [rating, setrating] = useState(-1);
   return (
     <>
       {Object.values(groupBy(hotel, "city")).map((hotel, k) => (

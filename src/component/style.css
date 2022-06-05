@@ -155,3 +155,18 @@ x .card .btn:focus,
 
   border-color: transparent;
 }
+
+@media (max-width: 574px) {
+  #firstrow {
+    flex-direction: column-reverse;
+  }
+  #introtxt {
+    padding: 20px 0;
+  }
+}
+@media (max-width: 1120px) {
+  .formqwe .btn-submit:first-of-type {
+    border-bottom-left-radius: 23px;
+    border-bottom-right-radius: 23px;
+  }
+}

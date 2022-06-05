@@ -163,6 +163,7 @@ class Body extends React.Component {
     return (
       <>
         <div
+          id="firstrow"
           className="row"
           style={{
             backgroundColor: "#1F271B",
@@ -181,6 +182,7 @@ class Body extends React.Component {
           </div>
           <div
             className="col-sm-6"
+            id="introtxt"
             style={{
               color: "white",
               display: "flex",
