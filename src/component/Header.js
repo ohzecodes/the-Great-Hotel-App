@@ -16,15 +16,18 @@ class Header extends React.Component {
             alignContent: "center",
           }}
         >
-          <img
-            src="./logo.png"
-            alt="the great hotel app logo"
-            style={{
-              width: "200px",
-              height: 100,
-              marginLeft: "0%",
-            }}
-          />
+          <a href="/">
+            {" "}
+            <img
+              src="./logo.png"
+              alt="the great hotel app logo"
+              style={{
+                width: "200px",
+                height: 100,
+                marginLeft: "0%",
+              }}
+            />
+          </a>
         </div>
       </div>
     );
