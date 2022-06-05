@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
-function Stars(props) {
-  let n = [...Array(props.avg).keys()].map((e, key) => (
+function Stars({ avg }) {
+  let n, m;
+
+  // if (avg !== 0 && !isNaN(avg)) {
+  n = [...Array(avg).keys()].map((e, key) => (
     <svg
       key={key}
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +16,7 @@ function Stars(props) {
       <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
     </svg>
   ));
-  let m = [...Array(5 - props.avg).keys()].map((e, key) => (
+  m = [...Array(5 - avg).keys()].map((e, key) => (
     <svg
       key={key}
       xmlns="http://www.w3.org/2000/svg"
@@ -32,38 +35,62 @@ function Stars(props) {
       {m}
     </>
   );
+  // } else return null;
 }
 
 function Hotel(props) {
-  const { obj } = props;
-  const { _id, city, filepath, name, rev, streetAddress, website } = obj;
+  const { _id, city, filepath, name, streetAddress, website, rev } = props;
+  let av;
+  // console.log(rev);
+  if (rev.length != 0) {
+    av = Math.round(
+      rev.map((e) => e.rating).reduce((prev, c) => prev + c, 0) / rev.length
+    );
+  } else {
+    av = 0;
+  }
+  $("#exampleModal").on("show.bs.modal", function (event) {
+    var button = $(event.relatedTarget);
+    var recipient = button.data("whatever");
 
-  let av =
-    rev.map((e) => e.rating).reduce((prev, c) => prev + c, 0) / rev.length;
+    var modal = $(this);
+    modal.find(".modal-title").text(`Please Rate ${recipient}`);
+    modal.find("input#recipient-name").val(recipient);
+  });
+
   return (
     <>
-      <div className="card" style={{ border: 0 }}>
-        <img
-          src={filepath}
-          className="card-img"
-          height="243px"
-          style={{
-            height: 243,
-            border: "1px solid white",
-            borderRadius: 4,
-            borderBottomLeftRadius: 0,
-            borderBottomRightRadius: 0,
-          }}
-          alt={"A picture of " + name}
-        />
+      <div
+        className="card"
+        style={{
+          border: 0,
+          borderBottomRightRadius: "3px",
+          borderBottomLeftRadius: "3px",
+        }}
+      >
+        <a href={`./${city}/${name} `}>
+          <img
+            src={filepath}
+            className="card-img"
+            height="243px"
+            style={{
+              height: 243,
+              border: "1px solid white",
+              borderRadius: 4,
+              borderBottomLeftRadius: 0,
+              borderBottomRightRadius: 0,
+            }}
+            alt={"A picture of " + name}
+          />
+        </a>
         <div className="card-body" style={{ paddingLeft: 0, paddingBottom: 0 }}>
           <h3 className="card-title" style={{ textAlign: "center" }}>
             {name}
           </h3>
-          <ul>
+          <ul style={{ listStyle: "none", textAlign: "center", padding: 0 }}>
             <li>Street Address: {streetAddress}</li>
             <li>
-              Website: <a href={website}>{website}</a>
+              <a href={website}>{website.toLowerCase().substring(8)}</a>
             </li>
           </ul>
           <div
@@ -79,13 +106,34 @@ function Hotel(props) {
             <p>{rev.length}</p>
           </div>
         </div>
-        <a
-          className="btn btn-info"
-          style={{ borderTopRightRadius: 0, borderTopLeftRadius: 0 }}
-          href={`./${city}/${name} `}
-        >
-          see reviews
-        </a>{" "}
+        <div className="button-div" style={{ width: "100%", display: "flex" }}>
+          <a
+            href={`./${city}/${name}`}
+            className="btn btn-info"
+            style={{
+              borderRadius: 0,
+              borderBottomLeftRadius: "2px",
+              padding: "10px",
+              flex: 1,
+            }}
+          >
+            see reviews
+          </a>
+          <button
+            type="button"
+            className="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModal"
+            data-whatever={name}
+            style={{
+              flex: 1,
+              borderRadius: 0,
+              borderBottomRightRadius: "2px",
+            }}
+          >
+            Rate This Hotel
+          </button>
+        </div>
       </div>
     </>
   );

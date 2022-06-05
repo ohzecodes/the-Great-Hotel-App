@@ -6,7 +6,7 @@ class Header extends React.Component {
     return (
       <div
         className="row"
-        style={{ backgroundColor: "black", borderBottom: "2px dotted white" }}
+        style={{ backgroundColor: "black", borderBottom: "2px solid white" }}
       >
         <div
           className="col-12"

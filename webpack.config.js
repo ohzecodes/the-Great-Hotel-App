@@ -7,8 +7,9 @@ module.exports = {
   devtool: "source-map",
   entry: ["./src/index.js"],
   output: {
+    path: path.resolve(__dirname, "public/js"),
+    publicPath: "./js/",
     filename: "bundle.js",
-    path: path.resolve(__dirname, "public"),
   },
   optimization: {
     minimize: true,
@@ -28,8 +29,9 @@ module.exports = {
       },
       hash: false,
       template: "./public/index.ejs",
-      publicPath: "./",
-      filename: "./index.html",
+      publicPath: "./js",
+      // publicPath defines what will append in html while calling
+      filename: "../index.html",
     }),
   ],
   module: {

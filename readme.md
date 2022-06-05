@@ -30,10 +30,10 @@ The class was given 15 days to build an entire application with these [technolog
 ### Wins
 
 - I enjoyed writing
-  - aggregate fuchions to join MongoDb collections.
+  - aggregate functions to join MongoDb collections.
   - validation tools to verify and sanitize the data (validators.js)
   - Animating the Stars
-- I Appreciated react's ability to update content real time
+- I Appreciate react's ability to update content real time
 
 ### Blockers
 

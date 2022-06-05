@@ -16,6 +16,25 @@ class MainComp extends React.Component {
         />
         <Header />
         <Body />
+        <footer style={{ background: "black", color: "white", padding: 25 }}>
+          <h3
+            style={{
+              margin: 0,
+              textAlign: "center",
+
+              fontFamily: "cursive",
+            }}
+          >
+            There is something else to show you:{" "}
+            <a
+              style={{ fontFamily: "SignPainter" }}
+              href="https://github.com/ohzecodes/theGreatHotelApp"
+            >
+              {" "}
+              A github page
+            </a>
+          </h3>
+        </footer>
       </>
     );
   }

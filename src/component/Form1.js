@@ -1,6 +1,55 @@
 import React from "react";
 class Form1 extends React.Component {
   render() {
+    let formsubmit;
+    let style = {
+      width: "100%",
+      textAlign: "center",
+      borderTopLeftRadius: "60px",
+      borderTopRightRadius: "60px",
+      paddingBottom: "10px",
+      paddingTop: "10px",
+      borderTop: "2px solid black",
+    };
+    switch (this.props.submit) {
+      case 1: {
+        formsubmit = (
+          <div
+            style={{
+              background: "#E9F0D8",
+              color: "#6C6B4E",
+              ...style,
+            }}
+          >
+            successful submit{" "}
+          </div>
+        );
+        break;
+      }
+      case 0: {
+        // enpty div for when form not submited
+        formsubmit = (
+          <div
+            style={{
+              ...style,
+              borderTop: 0,
+              color: "white",
+            }}
+          ></div>
+        );
+        break;
+      }
+      case -1: {
+        formsubmit = (
+          <div style={{ background: "red", ...style }}>
+            {" "}
+            Sorry, We encountered errors
+          </div>
+        );
+        break;
+      }
+    }
+
     return (
       <form
         style={{ background: this.props.bg }}
@@ -9,6 +58,7 @@ class Form1 extends React.Component {
         encType="multipart/form-data"
         onSubmit={this.props.submitform}
       >
+        {formsubmit}
         <div className="form-group row">
           <label className="col-sm-12 forml">Add a new Hotel</label>
         </div>
@@ -50,14 +100,20 @@ class Form1 extends React.Component {
               accept="image/*"
               className="form-control"
               id="file"
+              hidden
             />
-            <span className="help-block">MAX: 5MB</span>
+            <label htmlFor="file" id="fileupload">
+              {this.props.filename == ""
+                ? "Click here to upload image"
+                : this.props.filename}
+            </label>
+            <br /> MAX: 3MB
           </div>
         </div>
 
         <div className="form-group row">
           <div className="col-sm-12">
-            <button type="submit" className="btn btn-primary form-control">
+            <button type="submit" className="btn btn-submit form-control">
               Submit
             </button>
           </div>

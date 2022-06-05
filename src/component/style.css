@@ -1,64 +1,157 @@
-.card{
-    width: 314px ;
-    height: 452px;
-    margin-left: 20px;
-    flex-wrap:row;
-    margin-top: 20px;
+.card {
+  width: 314px;
+  height: 452px;
+  margin-left: 20px;
+  flex-wrap: row;
+  margin-top: 20px;
 }
- input.form-control,textarea.form-control, select.form-control{
-    background-color: unset;border: 1px solid black;
+input.form-control,
+textarea.form-control,
+select.form-control {
+  background-color: unset;
+  border: 1px solid black;
+}
+.btn-submit {
+  background-color: #0a2463;
+  border: 0;
+  color: #fff;
 }
 
-#root,.wrapper{
-    overflow: hidden;
+#root,
+.wrapper {
+  overflow: hidden;
 }
 .alert {
-    margin-bottom: 0;
-    text-align: center;
-    padding: 8px;
-    color: #fff;
-    border-color: #000;
-    border-radius: 0;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 8px;
+  color: #fff;
+  border-color: #000;
+  border-radius: 0;
 }
 .alert-info {
-    
-    background-color: rgb(6, 69, 82);
-
+  background-color: rgb(6, 69, 82);
 }
-
-#file::-webkit-file-upload-button{
-    background-color: black;
-    color:white;
-    opacity: 0;
-    padding: 100;
-    border: 0;
+#fileupload:hover {
+  cursor: pointer;
+}
+#fileupload {
+  background-clip: padding-box;
+  padding-bottom: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 3px;
+  border-radius: 2px;
+  width: 100%;
+  border: 1px solid black;
+  text-align: center;
+  justify-content: center;
 }
 /* rgb(29, 35, 38); */
-label{
-    text-align: center;
+label {
+  text-align: center;
 }
 
-
-.form-check.form-check-inline{
-
-        margin:auto;
+.form-check.form-check-inline {
+  margin: auto;
+}
+#ratingform {
+  margin-top: 0;
+  padding-top: 0;
+  border: 0;
+}
+.formqwe {
+  background: white;
+  border: 2px solid black;
+  border-top: 0;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  height: 90%;
+  border-radius: 60px;
+}
+.forml {
+  text-align: center;
+}
+.card-title {
+  text-transform: capitalize;
 }
 
-.formqwe{
-    background: white;
-    border:2px solid black;
-    margin-bottom: 5%;
-    margin-top: 5%;
-    padding: 20px;
-    height: 90%;
-    border-radius: 60px;
+.city-title {
+  text-transform: capitalize;
+  text-align: center;
+  font-family: SignPainter;
+  font-size: 4rem;
 }
-.forml{
-    text-align: center;
+.form-group {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+button,
+a,
+.btn {
+  text-transform: capitalize;
+}
+.btn.btn-submit:hover {
+  /* color: #fff; */
+  background-color: transparent;
+  border: 2px solid black;
+}
+:root {
+  --btninfo: #0e1c36;
+  --btnprim: #415d43;
 }
 
-#file{
-    background: black;
-    color: white;
-    text-align: center !important;
+.modal-backdrop {
+  background-color: #815e5b;
+}
+
+.btn-info,
+.btn-info:focus {
+  background-color: var(--btninfo);
+  border: 1px solid white;
+  border-right: 0;
+  border-top: 0;
+}
+x .card .btn:focus,
+.card .btn.focus,
+.card .btn-primary,
+.card .btn-info {
+  box-shadow: 0 0 0 0.2rem transparent;
+}
+.btn.btn-danger:hover {
+  background-color: #79151f;
+}
+.btn.btn-primary {
+  background-color: var(--btnprim);
+  border-color: transparent;
+  border: 1px solid white;
+  border-left: 0;
+  border-top: 0;
+}
+.btn-info:hover {
+  background-color: var(--btninfo);
+  border-color: transparent;
+}
+
+.btn.btn-primary:hover {
+  background-color: var(--btnprim);
+  border-color: transparent;
+}
+.btn-info:not(:disabled):not(.disabled).active,
+.btn-info:not(:disabled):not(.disabled):active,
+.btn-info:not(:disabled):not(.disabled).active:focus,
+.btn-info:not(:disabled):not(.disabled):active:focus,
+.show > .btn-info.dropdown-toggle {
+  background-color: var(--btninfo);
+
+  border-color: transparent;
+  box-shadow: 0 0 0 0.2rem transparent;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: var(--btnprim);
+
+  border-color: transparent;
 }

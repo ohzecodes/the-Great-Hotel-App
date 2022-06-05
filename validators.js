@@ -8,11 +8,10 @@ app.use(express.urlencoded({ extended: true }));
 exports.form1 = [
   check("name")
     .trim()
-    .not()
-    .isEmpty()
     .isLength({ min: 5 })
     .withMessage("must be at least 5 chars long")
-    .escape(),
+    .escape()
+    .customSanitizer((string) => string.toLowerCase()),
 
   check("city")
     .trim()
@@ -20,17 +19,21 @@ exports.form1 = [
     .isEmpty()
     .isLength({ min: 5 })
     .withMessage("must be 5 char or +")
-    .escape(),
+    .escape()
+    .customSanitizer((string) => string.toLowerCase()),
+
   check("streetAddress")
     .trim()
     .not()
     .isEmpty()
     .isLength({ min: 5 })
-    .withMessage("something is wrong with the streetAddress "),
+    .withMessage("something is wrong with the streetAddress ")
+    .customSanitizer((string) => string.toLowerCase()),
+
   check("website")
     .trim()
-    .isLength({ min: 8 })
-    .withMessage("must be 8+ chars")
+    .isLength({ min: 4 })
+    .withMessage("must be 4+ chars")
     .isURL()
     .customSanitizer((string) => {
       if (
@@ -39,7 +42,7 @@ exports.form1 = [
       ) {
         string = "https://" + string;
       }
-      return string;
+      return string.toLowerCase();
     }),
 ];
 exports.form2 = [

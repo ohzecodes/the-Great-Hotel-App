@@ -8,9 +8,11 @@ app.set("view engine", "ejs");
 const connection = require("./db/connection");
 const hotelS = require("./models/hotel");
 const reviewS = require("./models/reviews");
+
 app.use(express.static("public"));
-let m = require(__dirname + "/validators.js");
-const { validationResult } = require("express-validator");
+app.use("/api", require("./extraroutes.js"));
+app.use("/add", require("./addroute.js"));
+
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -23,7 +25,7 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage: storage,
   limits: {
-    fileSize: 1024 * 1024 * 5,
+    fileSize: 1024 * 1024 * 2,
   },
 });
 
@@ -31,7 +33,6 @@ app.get("/", (req, res) => {
   res.status(200).send("./public/index.html");
 });
 
-require("./extraroutes")(app, hotelS);
 app.get("/api/all", (req, res) => {
   hotelS.find().then(() => {
     hotelS
@@ -46,7 +47,7 @@ app.get("/api/all", (req, res) => {
         },
       ])
       .then((r) => {
-        // checks if image not in the server sets filepath of object to false, v to 1, indicating that the hotel has been changed
+        // checks if image not in the server sets filepath of object to false, __v to 1, indicating that the hotel has been changed
         const refinedobj = r.map((e) => {
           if (!fs.existsSync(e.filepath)) {
             return { ...e, filepath: false, __v: 1 };
@@ -65,70 +66,8 @@ app.post("/images", upload.single("hotelImg"), (req, res) => {
   res.status(200).send(req.file);
 });
 
-app.post("/add/hotels", m.form1, (req, res) => {
-  const errors = validationResult(req);
-
-  if (errors.isEmpty()) {
-    let hotel = new hotelS(req.body);
-    hotel
-      .save()
-      .then((result) => {
-        res.status(200).send(result);
-      })
-      .catch((error) => res.status(400).send(error));
-  } else {
-    res.status(400).send(errors);
-  }
-});
-
-app.post("/add/reviews", m.form2, (req, res) => {
-  const errors = validationResult(req);
-  console.log(req.body);
-  if (errors.isEmpty()) {
-    let review = new reviewS(req.body);
-
-    review
-      .save()
-      .then((result) => {
-        console.log("id", result._id);
-        hotelS
-          .findOne({ name: req.body.name })
-          .then((res) => {
-            let p = res.rev.slice(0);
-            p.push(result._id);
-            console.log(p);
-
-            hotelS
-              .findOneAndUpdate({ name: req.body.name }, { rev: p })
-              .then(console.log("sucess"))
-              .catch((e) => console.log(e));
-          })
-          .then((result) => {
-            hotelS
-              .aggregate([
-                {
-                  $lookup: {
-                    from: "reviews",
-                    localField: "rev",
-                    foreignField: "_id",
-                    as: "rev",
-                  },
-                },
-              ])
-              .then((result) => {
-                console.log(result);
-                res.status(200).send(result);
-              })
-              .catch((err) => {});
-          });
-      })
-      .catch((error) => {
-        res.status(400).send(error);
-        console.log(error);
-      });
-  } else {
-    res.status(400).send(errors);
-  }
+app.use((error, req, res, next) => {
+  console.log("This is the rejected field ->", error.field);
 });
 
 app.get("/:city/:hotel", (req, res) => {
@@ -152,7 +91,7 @@ app.get("/:city/:hotel", (req, res) => {
     .catch((e) => res.send("not found"));
 });
 
-app.get("*", function (req, res) {
+app.get("*", (req, res) => {
   res.status(404).send("404 error");
 });
 
@@ -164,7 +103,7 @@ try {
     });
   });
 } catch (e) {
-  console.log("first :>> ");
+  console.log(e);
 }
 
 // https://youtu.be/srPXMt1Q0nY?t=1007

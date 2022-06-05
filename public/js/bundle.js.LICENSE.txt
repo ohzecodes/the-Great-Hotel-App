@@ -64,23 +64,19 @@ object-assign
 
 /*! ./Form1 */
 
-/*! ./Form2 */
-
 /*! ./Header */
 
 /*! ./InterceptorManager */
 
-/*! ./Radiobutton */
-
 /*! ./Topbar */
+
+/*! ./Wrapper */
 
 /*! ./cancel/Cancel */
 
 /*! ./cancel/CancelToken */
 
 /*! ./cancel/isCancel */
-
-/*! ./city */
 
 /*! ./cjs/react-dom.development.js */
 
@@ -89,8 +85,6 @@ object-assign
 /*! ./cjs/scheduler-tracing.development.js */
 
 /*! ./cjs/scheduler.development.js */
-
-/*! ./color */
 
 /*! ./component/MainComp */
 
@@ -119,8 +113,6 @@ object-assign
 /*! ./lib/axios */
 
 /*! ./mergeConfig */
-
-/*! ./rating */
 
 /*! ./style.css */
 
@@ -160,24 +152,12 @@ object-assign
   !*** ./src/component/Form1.js ***!
   \********************************/
 
-/*!********************************!*\
-  !*** ./src/component/Form2.js ***!
-  \********************************/
-
-/*!********************************!*\
-  !*** ./src/component/color.js ***!
-  \********************************/
-
 /*!*********************************!*\
   !*** ./src/component/Header.js ***!
   \*********************************/
 
 /*!*********************************!*\
   !*** ./src/component/Topbar.js ***!
-  \*********************************/
-
-/*!*********************************!*\
-  !*** ./src/component/rating.js ***!
   \*********************************/
 
 /*!*********************************!*\
@@ -195,10 +175,6 @@ object-assign
 /*!*************************************!*\
   !*** ./node_modules/react/index.js ***!
   \*************************************/
-
-/*!**************************************!*\
-  !*** ./src/component/Radiobutton.js ***!
-  \**************************************/
 
 /*!*****************************************!*\
   !*** ./node_modules/axios/lib/axios.js ***!
