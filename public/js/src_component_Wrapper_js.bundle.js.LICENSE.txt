@@ -6,6 +6,8 @@
 
 /*! ./color */
 
+/*! ./formsubmit */
+
 /*! ./model */
 
 /*! ./rating */

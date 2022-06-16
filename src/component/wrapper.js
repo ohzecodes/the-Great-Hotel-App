@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Form2 from "./Form2";
 import Model from "./model";
 import City from "./city";
-
+import Formsubmit from "./formsubmit";
 function groupBy(objectArray = [], property = "") {
   if (objectArray !== undefined)
     return objectArray.reduce((acc, obj) => {
@@ -30,47 +30,6 @@ const Wrapper = ({ hotel, Handleform2submit, submit, clearMsgForm2 }) => {
     setrating(-1);
     document.getElementById("Textarea").value = "";
   };
-  let formsubmit;
-  switch (submit) {
-    case 1: {
-      formsubmit = (
-        <div
-          style={{
-            background: "#E9F0D8",
-            color: "#6C6B4E",
-            ...style,
-          }}
-        >
-          successful submit{" "}
-        </div>
-      );
-      break;
-    }
-    case 0: {
-      // enpty div for when form not submited
-      formsubmit = (
-        <div
-          style={{
-            ...style,
-            borderTop: 0,
-            color: "white",
-          }}
-        >
-          form yet to be submit
-        </div>
-      );
-      break;
-    }
-    case -1: {
-      formsubmit = (
-        <div style={{ background: "red", ...style }}>
-          {" "}
-          Sorry, We encountered errors
-        </div>
-      );
-      break;
-    }
-  }
 
   return (
     <>
@@ -78,7 +37,7 @@ const Wrapper = ({ hotel, Handleform2submit, submit, clearMsgForm2 }) => {
         <City key={k} hotel={hotel} citynum={k}></City>
       ))}
       <Model bg={"#f4f3ee"} clearMsgForm2={clearMsgForm2} reset={reset}>
-        {formsubmit}
+        <Formsubmit submit={submit} style={style} reset={reset} />
         <Form2
           bg="white"
           setrating={[rating, setrating]}

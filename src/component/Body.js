@@ -2,6 +2,8 @@ import React, { Suspense } from "react";
 import "./style.css";
 import Form1 from "./Form1";
 import Axios from "axios";
+import { FORM_ENUM } from "./formSubmitEnum";
+
 const Wrapper = React.lazy(() =>
   import(/* webpackPreload: true */ "./Wrapper")
 );
@@ -35,26 +37,20 @@ class Body extends React.Component {
       hotel: [],
       file: null,
       // 0: not filled; 1 is pass; -1 is error
-      form1Submit: 0,
-      form2Submit: 0,
+      form1Submit: FORM_ENUM.NOTFILLED,
+      form2Submit: FORM_ENUM.NOTFILLED,
     };
     this.hotelFormsubmit = this.hotelFormsubmit.bind(this);
     this.Handleform2submit = this.Handleform2submit.bind(this);
     this.fileSectedhandle = this.fileSectedhandle.bind(this);
-    this.clearAll = this.clearAll.bind(this);
+
     this.clearMsgForm2 = this.clearMsgForm2.bind(this);
   }
 
   fileSectedhandle(event) {
     this.setState({ file: event.target.files[0] });
   }
-  clearAll() {
-    // document.getElementById("file").value = "";
-    document.getElementById("name").value = "";
-    document.getElementById("city").value = "";
-    document.getElementById("Address").value = "";
-    document.getElementById("website").value = "";
-  }
+
   hotelFormsubmit(event) {
     event.preventDefault();
     let file = new FormData();
@@ -78,7 +74,7 @@ class Body extends React.Component {
             .then((r) => {
               this.setState({
                 hotel: [...m, r.data],
-                form1Submit: 1,
+                form1Submit: FORM_ENUM.SUCCESS,
               });
               alertonerr(r.data.errors);
               console.log(this.state.hotel);
@@ -86,7 +82,7 @@ class Body extends React.Component {
             .catch((e) => {
               this.setState({
                 hotel: m,
-                form1Submit: -1,
+                form1Submit: FORM_ENUM.ERROR,
               });
 
               console.log("e", e);
@@ -95,7 +91,7 @@ class Body extends React.Component {
         .catch((e) => {
           console.error("e", e);
           this.setState({
-            form1Submit: -1,
+            form1Submit: FORM_ENUM.ERROR,
           });
         });
     }
@@ -124,25 +120,25 @@ class Body extends React.Component {
         review: document.getElementById("Textarea").value,
       };
       // find which hotel is the rating to
-      let curent = this.state.hotel.filter((e) => e.name == name)[0];
+      let current = this.state.hotel.filter((e) => e.name == name)[0];
 
       Axios.post("/add/reviews", form2)
         .then((res) => {
           const n = this.state.hotel.map((e) => {
-            if (e.name === curent.name) {
-              curent.rev.push(res.data);
-              return curent;
+            if (e.name === current.name) {
+              current.rev.push(res.data);
+              return current;
             } else return e;
           });
           // 0: not filled; 1 is pass; -1 is error
           // form2Sumit: 0,
           console.log(n);
-          this.setState({ hotel: n, form2Submit: 1 });
+          this.setState({ hotel: n, form2Submit: FORM_ENUM.SUCCESS });
         })
 
         .catch((e) => {
           console.log(e);
-          this.setState({ form2Submit: -1 });
+          this.setState({ form2Submit: FORM_ENUM.ERROR });
         });
     } else {
       alert("rating not filled");
@@ -150,7 +146,7 @@ class Body extends React.Component {
   }
 
   clearMsgForm2() {
-    this.setState({ form2Submit: 0 });
+    this.setState({ form2Submit: FORM_ENUM.NOTFILLED });
   }
 
   render() {
