@@ -49,9 +49,13 @@ app.get("/api/all", (req, res) => {
       .then((r) => {
         // checks if image not in the server sets filepath of object to false, __v to 1, indicating that the hotel has been changed
         const refinedobj = r.map((e) => {
+          const fp = e.filepath.split("/");
+          fp[fp.length - 1] = encodeURIComponent(fp[fp.length - 1]);
+
           if (!fs.existsSync(e.filepath)) {
             return { ...e, filepath: false, __v: 1 };
           } else {
+            e.filepath = fp.join("/");
             return e;
           }
         });
