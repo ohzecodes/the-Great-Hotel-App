@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const connection = require("../db/connection");
 const reviewS = require("./reviews");
 const hotelS = require("./hotel");
-
 const path = require("path");
+
 const DeleteAllReviews = async () => {
   // delete all reviews
   await reviewS.deleteMany({}, (err, data) => {

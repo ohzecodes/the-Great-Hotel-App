@@ -79,9 +79,13 @@ app.get("/:city/:hotel", (req, res) => {
     .populate({ path: "rev" })
     .then((e) => {
       const array1 = e.filepath.split("/");
+
       e.host = req.headers.host;
       array1.shift();
+      array1[array1.length - 1] = encodeURIComponent(array1[array1.length - 1]);
+
       e.filepath = array1.join("/");
+
       e.avgrating =
         e.rev.map((m) => m.rating).reduce((prev, c) => prev + c, 0) /
         e.rev.length;
