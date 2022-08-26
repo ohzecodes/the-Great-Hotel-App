@@ -18,7 +18,7 @@ const sendEmail = (options) => {
     html:
       options.text +
       "<p>This email was send from an unmonitored email address..",
-    replyTo: "book@luxavel.co",
+    replyTo: process.env.EMAIL_REPLY || null,
   };
 
   transporter.sendMail(mailOptions, function (err, info) {
