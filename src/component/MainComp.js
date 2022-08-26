@@ -2,39 +2,35 @@ import React from "react";
 import Header from "./Header";
 import Body from "./Body";
 import Topbar from "./Topbar";
-
+import Footer from "./footer.js";
 let n =
   "The website uses heroku for its deployment where the filesystem is ephemeral. ";
 
 class MainComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { sh: false };
+    // console.log();
+  }
+
   render() {
     return (
       <>
-        <Topbar
-          txt={n}
-          url="https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted"
-        />
-        <Header />
-        <Body />
-        <footer style={{ background: "black", color: "white", padding: 25 }}>
-          <h3
-            style={{
-              margin: 0,
-              textAlign: "center",
-
-              fontFamily: "cursive",
+        <header>
+          <Topbar
+            txt={n}
+            url="https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted"
+          />
+          <Header
+            sh={(h) => {
+              this.setState({ sh: !this.state.sh });
             }}
-          >
-            There is something else to show you:{" "}
-            <a
-              style={{ fontFamily: "SignPainter" }}
-              href="https://github.com/ohzecodes/theGreatHotelApp"
-            >
-              {" "}
-              A github page
-            </a>
-          </h3>
-        </footer>
+            h={this.state.sh}
+            user={this.props.location.state || null}
+          />{" "}
+        </header>
+        <Body user={this.props.location.state || null} hidesf={this.state.sh} />
+        <Footer />
       </>
     );
   }

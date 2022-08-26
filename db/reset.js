@@ -36,6 +36,7 @@ const AddNewHotels = async () => {
  */
   let address = [
     "1234 Parkway Drive",
+    "4889 Hill Street",
     "4884 Hill Street",
     "234 Spinnaker Lane",
     "4564 Tail Ends Road",
@@ -43,21 +44,22 @@ const AddNewHotels = async () => {
   ];
   let cityPlaces = [
     "Tucson",
+    "Tucson",
     "TUCSON",
     "Spring Valley",
     "TUCSON",
     "Spring Valley",
   ].map((e) => e.toLowerCase());
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < address.length; i++) {
     let id = await AddNewReviews(i);
     let newHotel = await new hotelS({
       rev: [id],
       name: `Hotel${i + 1}`,
       city: cityPlaces[i],
       streetAddress: address[i],
-      website: `Hotel${i + 1}-${cityPlaces[i].replace(" ", "-")}.com`,
-      filepath: `public/uploads/hotel${i}.jpeg`,
+      website: `https://Hotel${i + 1}-${cityPlaces[i].replace(" ", "-")}.com`,
+      filepath: `public/uploads/hotel${i + 1}.jpeg`,
     }).save();
     console.log(newHotel);
   }

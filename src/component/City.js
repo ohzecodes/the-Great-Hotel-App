@@ -1,6 +1,7 @@
 import React from "react";
 import Hotel from "./Hotel";
 import { Trendy_Metropolitan } from "./color";
+import HotelWrapper from "./HotelWrapper";
 
 function refineweb(string) {
   if (string.substring(0, 8) !== "https://") {
@@ -52,10 +53,8 @@ class City extends React.Component {
           >
             {name}
           </h2>
-          <div id="wrapper" className="row">
-            {this.props.hotel.map((r, key) => {
-              return <Hotel key={key} {...r} />;
-            })}
+          <div id="wrapper" className="row hotelwrapper">
+            <HotelWrapper hotel={this.props.hotel} />
           </div>
         </div>
       </>

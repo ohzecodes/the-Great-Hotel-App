@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import MainComp from './component/MainComp'
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<MainComp />,document.getElementById('root'));
+import App from "./app";
+ReactDOM.render(<App />, document.getElementById("root"));

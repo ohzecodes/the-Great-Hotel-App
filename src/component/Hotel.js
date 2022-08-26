@@ -39,7 +39,7 @@ function Stars({ avg }) {
 }
 
 function Hotel(props) {
-  const { _id, city, filepath, name, streetAddress, website, rev } = props;
+  const { _id, city, filepath, name, streetAddress, website, rev, c } = props;
   let av;
   // console.log(rev);
   if (rev.length != 0) {
@@ -61,14 +61,14 @@ function Hotel(props) {
   return (
     <>
       <div
-        className="card"
+        className={"card " + c}
         style={{
           border: 0,
           borderBottomRightRadius: "3px",
           borderBottomLeftRadius: "3px",
         }}
       >
-        <a href={`./${city}/${name} `}>
+        <a href={`./show/${city}/${name}`}>
           <img
             src={filepath}
             className="card-img"
@@ -108,7 +108,7 @@ function Hotel(props) {
         </div>
         <div className="button-div" style={{ width: "100%", display: "flex" }}>
           <a
-            href={`./${city}/${name}`}
+            href={`./show/${city}/${name}`}
             className="btn btn-info"
             style={{
               borderRadius: 0,

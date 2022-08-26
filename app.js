@@ -1,8 +1,10 @@
 let express = require("express");
 let app = express();
 var fs = require("fs");
+
 var mongoose = require("mongoose");
 app.use(express.json());
+const path = require("path");
 
 app.set("view engine", "ejs");
 const connection = require("./db/connection");
@@ -14,6 +16,7 @@ app.use("/api", require("./extraroutes.js"));
 app.use("/add", require("./addroute.js"));
 
 const multer = require("multer");
+const errorHandler = require("./auth/middleware/error");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./public/uploads/");
@@ -70,11 +73,38 @@ app.post("/images", upload.single("hotelImg"), (req, res) => {
   res.status(200).send(req.file);
 });
 
-app.use((error, req, res, next) => {
-  console.log("This is the rejected field ->", error.field);
-});
+app.get("/show/:city", (req, res) => {
+  const { city } = req.params;
 
-app.get("/:city/:hotel", (req, res) => {
+  hotelS
+    .find({ city: city })
+    .populate({ path: "rev" })
+    .then((e) => {
+      e.forEach((e) => {
+        if (!fs.existsSync(e.filepath)) {
+          e.filepath = "//" + `${req.headers.host}/uploads/placeholder.png`;
+          e.__v = 1;
+        } else {
+          e.filepath =
+            "//" +
+            req.headers.host +
+            "/" +
+            e.filepath.split("/").splice(1).join("/");
+        }
+
+        e.avgrating =
+          e.rev.map((m) => m.rating).reduce((prev, c) => prev + c, 0) /
+          e.rev.length;
+      });
+      console.log(e[0].rev.length);
+      res.render("city", { hotel: e, host: req.headers.host });
+    })
+    .catch((e) => {
+      console.log(e);
+      res.send("city not found");
+    });
+});
+app.get("/show/:city/:hotel", (req, res) => {
   const city = req.params.city;
   const hotel = req.params.hotel;
 
@@ -87,7 +117,12 @@ app.get("/:city/:hotel", (req, res) => {
       e.host = req.headers.host;
       array1.shift();
       array1[array1.length - 1] = encodeURIComponent(array1[array1.length - 1]);
-
+      // if (!fs.existsSync(e.filepath)) {
+      //   return { ...e, filepath: false, __v: 1 };
+      // } else {
+      //   e.filepath = fp.join("/");
+      //   return e;
+      // }
       e.filepath = array1.join("/");
 
       e.avgrating =
@@ -96,15 +131,24 @@ app.get("/:city/:hotel", (req, res) => {
 
       res.render("onehotel", e);
     })
-    .catch((e) => res.send("not found"));
+    .catch((e) => res.send(" hotel not found"));
 });
 
-app.get("*", (req, res) => {
-  res.status(404).send("404 error");
+// Connecting auth Routes
+app.use("/api/auth", require("./auth/auth"));
+app.use("/api/private", require("./auth/private"));
+
+app.use((error, req, res, next) => {
+  console.log("This is the rejected field ->", error);
 });
+app.get("/*", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, "/public/index.html"));
+});
+app.use(errorHandler);
 
 try {
   connection.once("open", () => {
+    // console.log(process.env);
     app.set("port", process.env.PORT || 8080);
     let server = app.listen(app.settings.port, () => {
       console.log("Server ready on ", app.settings.port);

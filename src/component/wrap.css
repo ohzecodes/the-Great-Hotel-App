@@ -1,0 +1,29 @@
+.btndiv {
+  align-self: center;
+}
+
+.button-circle {
+  border-radius: 100px;
+  border: 0;
+  height: 50px;
+  width: 50px;
+  background-color: #ffffff;
+}
+.button-circle:hover {
+  background-color: red;
+}
+#cards-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+#changebtndiv {
+  margin-top: 25px;
+}
+#changebtndiv .changebuttons {
+  border-radius: 100%;
+  border: none;
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+}

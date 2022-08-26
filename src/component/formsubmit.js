@@ -7,10 +7,10 @@ const Formsubmit = ({ submit, style, reset }) => {
       if (reset) reset();
       return (
         <div
+          className="submit_form"
           style={{
-            background: "#E9F0D8",
+            backgroundColor: "#E9F0D8",
             color: "#6C6B4E",
-            ...style,
           }}
         >
           successful submit{" "}
@@ -21,17 +21,23 @@ const Formsubmit = ({ submit, style, reset }) => {
       // enpty div for when form not submited
       return (
         <div
+          className="submit_form"
           style={{
-            ...style,
-            borderTop: 0,
-            color: "white",
+            backgroundColor: "#000",
+            color: "#fff",
           }}
-        ></div>
+          hidden
+        >
+          nothing yet
+        </div>
       );
     }
     case FORM_ENUM.ERROR: {
       return (
-        <div style={{ background: "red", ...style }}>
+        <div
+          className="submit_form"
+          style={{ backgroundColor: "red", color: "white" }}
+        >
           {" "}
           Sorry, We encountered errors
         </div>

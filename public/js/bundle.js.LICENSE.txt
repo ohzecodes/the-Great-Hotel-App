@@ -4,9 +4,11 @@ object-assign
 @license MIT
 */
 
-/*! !!../../../css-loader/dist/cjs.js!./bootstrap.min.css */
+/*! !!../../../css-loader/dist/cjs.js!../../../sass-loader/dist/cjs.js!./bootstrap.min.css */
 
-/*! !!../../node_modules/css-loader/dist/cjs.js!./style.css */
+/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./auth.scss */
+
+/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./style.css */
 
 /*! !../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */
 
@@ -21,6 +23,8 @@ object-assign
 /*! ../cancel/Cancel */
 
 /*! ../cancel/isCancel */
+
+/*! ../component/Header */
 
 /*! ../core/buildFullPath */
 
@@ -72,19 +76,43 @@ object-assign
 
 /*! ./Wrapper */
 
+/*! ./app */
+
+/*! ./auth.scss */
+
+/*! ./auth/ForgotPasswordScreen */
+
+/*! ./auth/LoginScreen */
+
+/*! ./auth/RegisterScreen */
+
+/*! ./auth/ResetPasswordScreen */
+
+/*! ./auth/signin/Logout */
+
+/*! ./auth/signin/PrivateRoute */
+
+/*! ./auth/signin/PrivateScreen */
+
 /*! ./cancel/Cancel */
 
 /*! ./cancel/CancelToken */
 
 /*! ./cancel/isCancel */
 
+/*! ./checkPropTypes */
+
 /*! ./cjs/react-dom.development.js */
+
+/*! ./cjs/react-is.development.js */
 
 /*! ./cjs/react.development.js */
 
 /*! ./cjs/scheduler-tracing.development.js */
 
 /*! ./cjs/scheduler.development.js */
+
+/*! ./color */
 
 /*! ./component/MainComp */
 
@@ -102,6 +130,10 @@ object-assign
 
 /*! ./env/data */
 
+/*! ./factoryWithTypeCheckers */
+
+/*! ./footer.js */
+
 /*! ./formSubmitEnum */
 
 /*! ./formsubmit */
@@ -116,7 +148,13 @@ object-assign
 
 /*! ./lib/axios */
 
+/*! ./loginApp */
+
+/*! ./loginform */
+
 /*! ./mergeConfig */
+
+/*! ./setPrototypeOf.js */
 
 /*! ./style.css */
 
@@ -126,13 +164,31 @@ object-assign
 
 /*! ./utils */
 
+/*! @babel/runtime/helpers/esm/extends */
+
+/*! @babel/runtime/helpers/esm/inheritsLoose */
+
+/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */
+
 /*! axios */
 
 /*! bootstrap/dist/css/bootstrap.min.css */
 
+/*! history */
+
+/*! hoist-non-react-statics */
+
 /*! import() */
 
+/*! isarray */
+
+/*! mini-create-react-context */
+
 /*! object-assign */
+
+/*! path-to-regexp */
+
+/*! prop-types */
 
 /*! prop-types/checkPropTypes */
 
@@ -140,13 +196,41 @@ object-assign
 
 /*! react-dom */
 
+/*! react-is */
+
+/*! react-router */
+
+/*! react-router-dom */
+
+/*! regenerator-runtime/runtime */
+
+/*! resolve-pathname */
+
 /*! scheduler */
 
 /*! scheduler/tracing */
 
+/*! tiny-invariant */
+
+/*! tiny-warning */
+
+/*! value-equal */
+
+/*!********************!*\
+  !*** ./src/app.js ***!
+  \********************/
+
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
+
+/*!****************************!*\
+  !*** ./src/auth/auth.scss ***!
+  \****************************/
+
+/*!*******************************!*\
+  !*** ./src/auth/loginform.js ***!
+  \*******************************/
 
 /*!*******************************!*\
   !*** ./src/component/Body.js ***!
@@ -155,6 +239,14 @@ object-assign
 /*!********************************!*\
   !*** ./src/component/Form1.js ***!
   \********************************/
+
+/*!********************************!*\
+  !*** ./src/component/color.js ***!
+  \********************************/
+
+/*!*********************************!*\
+  !*** ./src/auth/LoginScreen.js ***!
+  \*********************************/
 
 /*!*********************************!*\
   !*** ./src/component/Header.js ***!
@@ -165,12 +257,24 @@ object-assign
   \*********************************/
 
 /*!*********************************!*\
+  !*** ./src/component/footer.js ***!
+  \*********************************/
+
+/*!*********************************!*\
   !*** ./src/component/style.css ***!
   \*********************************/
 
 /*!***********************************!*\
+  !*** ./src/auth/signin/Logout.js ***!
+  \***********************************/
+
+/*!***********************************!*\
   !*** ./src/component/MainComp.js ***!
   \***********************************/
+
+/*!************************************!*\
+  !*** ./src/auth/RegisterScreen.js ***!
+  \************************************/
 
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -181,8 +285,16 @@ object-assign
   \*************************************/
 
 /*!*************************************!*\
+  !*** ./src/auth/signin/loginApp.js ***!
+  \*************************************/
+
+/*!*************************************!*\
   !*** ./src/component/formsubmit.js ***!
   \*************************************/
+
+/*!****************************************!*\
+  !*** ./node_modules/react-is/index.js ***!
+  \****************************************/
 
 /*!*****************************************!*\
   !*** ./node_modules/axios/lib/axios.js ***!
@@ -201,8 +313,28 @@ object-assign
   \*****************************************/
 
 /*!*****************************************!*\
+  !*** ./src/auth/ResetPasswordScreen.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./src/auth/signin/PrivateRoute.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
   !*** ./src/component/formSubmitEnum.js ***!
   \*****************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/prop-types/index.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./src/auth/ForgotPasswordScreen.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./src/auth/signin/PrivateScreen.js ***!
+  \******************************************/
 
 /*!*******************************************!*\
   !*** ./node_modules/scheduler/tracing.js ***!
@@ -284,6 +416,14 @@ object-assign
   !*** ./node_modules/react/cjs/react.development.js ***!
   \*****************************************************/
 
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/value-equal/esm/value-equal.js ***!
+  \*****************************************************/
+
 /*!******************************************************!*\
   !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
   \******************************************************/
@@ -332,6 +472,22 @@ object-assign
   !*** ./node_modules/bootstrap/dist/css/bootstrap.min.css ***!
   \***********************************************************/
 
+/*!***********************************************************!*\
+  !*** ./node_modules/react-is/cjs/react-is.development.js ***!
+  \***********************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/prop-types/factoryWithTypeCheckers.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/tiny-warning/dist/tiny-warning.esm.js ***!
+  \************************************************************/
+
 /*!*************************************************************!*\
   !*** ./node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
   \*************************************************************/
@@ -348,21 +504,77 @@ object-assign
   !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
   \***************************************************************/
 
+/*!***************************************************************!*\
+  !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/resolve-pathname/esm/resolve-pathname.js ***!
+  \***************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js ***!
+  \****************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/mini-create-react-context/dist/esm/index.js ***!
+  \******************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/react-router-dom/node_modules/isarray/index.js ***!
+  \*********************************************************************/
+
 /*!*********************************************************************!*\
   !*** ./node_modules/scheduler/cjs/scheduler-tracing.development.js ***!
   \*********************************************************************/
 
-/*!***********************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/component/style.css ***!
-  \***********************************************************************/
+/*!***************************************************************************!*\
+  !*** ./node_modules/react-router-dom/node_modules/history/esm/history.js ***!
+  \***************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/react-router-dom/node_modules/path-to-regexp/index.js ***!
+  \****************************************************************************/
 
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
   \****************************************************************************/
 
-/*!*************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/bootstrap/dist/css/bootstrap.min.css ***!
-  \*************************************************************************************************/
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
+  \*********************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
+  \**********************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js ***!
+  \*************************************************************************************/
+
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/auth/auth.scss ***!
+  \*********************************************************************************************************/
+
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/mini-create-react-context/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
+  \*********************************************************************************************************/
+
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/mini-create-react-context/node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
+  \**********************************************************************************************************/
+
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/component/style.css ***!
+  \**************************************************************************************************************/
+
+/*!****************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/bootstrap/dist/css/bootstrap.min.css ***!
+  \****************************************************************************************************************************************/
 
 /**
  * Checks if an event is supported in the current execution environment.
@@ -406,6 +618,15 @@ object-assign
  */
 
 /** @license React v16.12.0
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v16.14.0
  * react.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.

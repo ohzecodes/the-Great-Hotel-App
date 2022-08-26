@@ -8,7 +8,7 @@ module.exports = {
   entry: ["./src/index.js"],
   output: {
     path: path.resolve(__dirname, "public/js"),
-    publicPath: "./js/",
+    publicPath: "/js/",
     filename: "bundle.js",
   },
   optimization: {
@@ -29,7 +29,7 @@ module.exports = {
       },
       hash: false,
       template: "./public/index.ejs",
-      publicPath: "./js",
+      publicPath: "/js",
       // publicPath defines what will append in html while calling
       filename: "../index.html",
     }),
@@ -37,8 +37,19 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
+      {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.m?js$/,

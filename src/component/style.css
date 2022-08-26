@@ -1,3 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+:root {
+  --btninfo: #0e1c36;
+  --btnprim: #415d43;
+  --headerFont: Montserrat;
+}
+
+.btn > svg {
+  cursor: pointer;
+}
+
+#firstrow {
+  background-color: #1f271b;
+  padding: 10px;
+  border-bottom: 2px solid white;
+  height: 650px;
+}
+#searchbox {
+  background-color: black;
+  color: #fff;
+  border: 0;
+}
+#searchbox:focus {
+  outline: 0;
+  background-color: black;
+  border-bottom: 5px solid var(--btnprim);
+  margin-right: 20px;
+}
+#searchbox::placeholder {
+  color: white;
+}
+@keyframes slide-in {
+  0% {
+    left: 0px;
+    opacity: 0;
+    background-color: #415d43;
+  }
+  25% {
+    opacity: 0;
+    background-color: #415d43;
+  }
+  100% {
+    left: 1.2in;
+    opacity: 1;
+    background-color: transparent;
+  }
+}
+
+.sfd {
+  position: absolute;
+  top: 0.7in;
+  height: 50;
+}
+.sfd.true {
+  animation: slide-in 600ms forwards;
+  display: flex;
+}
+.sfd.false {
+  display: none;
+}
+
+.btn.btn-primary[value="search"] {
+  border: 0ch;
+}
+.btn.btn-primary[value="search"]:hover {
+  box-shadow: 2px 2px 2px 2px currentColor, -2px -2px 2px 2px currentColor;
+}
+
+.submit_form {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-top: 2px solid black;
+}
 .card {
   width: 314px;
   height: 452px;
@@ -5,12 +81,22 @@
   flex-wrap: row;
   margin-top: 20px;
 }
-input.form-control,
-textarea.form-control,
-select.form-control {
+.card.first {
+  margin-left: 0;
+}
+:is(input, textarea, select).form-control {
   background-color: unset;
   border: 1px solid black;
+  resize: none;
 }
+:is(input, textarea, select).form-control:focus {
+  box-shadow: none;
+  outline: 0;
+  border-color: #000;
+  border-left: 15px solid var(--btnprim);
+  background-color: transparent;
+}
+
 .btn-submit {
   background-color: #0a2463;
   border: 0;
@@ -32,24 +118,52 @@ select.form-control {
 .alert-info {
   background-color: rgb(6, 69, 82);
 }
-#fileupload:hover {
-  cursor: pointer;
+
+#file-reset {
+  padding: 3px 6px;
+  height: 33px;
+  border-radius: 0%;
+  margin: 0;
+  border: 1px solid black;
+  border-left: 0;
+}
+#file-reset:hover {
+  background-color: maroon;
+}
+.req {
+  color: red;
 }
 #fileupload {
-  background-clip: padding-box;
-  padding-bottom: 3px;
-  padding-left: 6px;
-  padding-right: 6px;
-  padding-top: 3px;
-  border-radius: 2px;
   width: 100%;
+  background-clip: padding-box;
+  padding: 3px 6px;
+  border-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 33px;
   border: 1px solid black;
-  text-align: center;
+  border-right: 0;
   justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-/* rgb(29, 35, 38); */
+#fileupload:hover {
+  cursor: pointer;
+  background: #0a2463;
+  color: white;
+}
+.form-body {
+  width: 80%;
+  margin: 0% auto;
+}
+
 label {
-  text-align: center;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+label.col-form-label {
+  padding: 0%;
 }
 
 .form-check.form-check-inline {
@@ -59,28 +173,52 @@ label {
   margin-top: 0;
   padding-top: 0;
   border: 0;
+  margin: auto;
 }
+
+#addformdiv {
+  /* margin: auto; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .formqwe {
   background: white;
   border: 2px solid black;
   border-top: 0;
-  margin-bottom: 5%;
-  margin-top: 5%;
-  height: 90%;
-  border-radius: 60px;
+  height: inherit;
+  width: 90%;
+  border-radius: 10px;
+}
+.formqwe h1 {
+  padding-top: 20px;
 }
 .forml {
   text-align: center;
 }
 .card-title {
   text-transform: capitalize;
+  font-family: var(--headerFont);
 }
 
+h1.forml {
+  text-transform: capitalize;
+  text-align: center;
+  font-family: var(--headerFont);
+}
 .city-title {
   text-transform: capitalize;
   text-align: center;
-  font-family: SignPainter;
-  font-size: 4rem;
+  font-family: var(--headerFont);
+  font-size: 3.7rem;
+}
+.card-body ul > li {
+  font-family: var(--headerFont);
+}
+.card-body ul > li > a {
+  font-family: var(--headerFont);
+  font-weight: 500;
 }
 .form-group {
   padding-left: 20px;
@@ -92,13 +230,8 @@ a,
   text-transform: capitalize;
 }
 .btn.btn-submit:hover {
-  /* color: #fff; */
   background-color: transparent;
   border: 2px solid black;
-}
-:root {
-  --btninfo: #0e1c36;
-  --btnprim: #415d43;
 }
 
 .modal-backdrop {
@@ -112,12 +245,10 @@ a,
   border-right: 0;
   border-top: 0;
 }
-x .card .btn:focus,
-.card .btn.focus,
-.card .btn-primary,
-.card .btn-info {
+.card:is(.btn:focus, .btn.focus, .btn-primary, .btn-info) {
   box-shadow: 0 0 0 0.2rem transparent;
 }
+
 .btn.btn-danger:hover {
   background-color: #79151f;
 }
@@ -155,18 +286,87 @@ x .card .btn:focus,
 
   border-color: transparent;
 }
+.row.hotelwrapper {
+  display: flex;
+  flex-direction: column;
+}
 
-@media (max-width: 574px) {
-  #firstrow {
-    flex-direction: column-reverse;
-  }
+.formqwe .row .col-sm-9 {
+  flex-direction: column;
+
+  justify-content: center;
+  display: flex;
+}
+
+#introtxt {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 800px) {
   #introtxt {
+    margin: auto;
     padding: 20px 0;
   }
+  #firstrow {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    height: 900px;
+    padding-bottom: 50px;
+    flex-wrap: wrap-reverse;
+    flex-direction: initial;
+  }
+  #formAdd {
+    width: 100%;
+    margin: auto;
+  }
+  .formqwe {
+    margin-left: 0%;
+  }
 }
+
 @media (max-width: 1120px) {
   .formqwe .btn-submit:first-of-type {
-    border-bottom-left-radius: 23px;
-    border-bottom-right-radius: 23px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
+  span.upload {
+    display: none;
+  }
+}
+
+#formimgcon * {
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+}
+
+#formimgcon {
+  position: relative;
+  width: 50%;
+  max-width: 100px;
+}
+
+#formimgcon img {
+  display: block;
+}
+
+#formimgcon .imgoverlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  transition: 0.5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+#formimgcon:hover .imgoverlay {
+  opacity: 1;
+  cursor: pointer;
 }

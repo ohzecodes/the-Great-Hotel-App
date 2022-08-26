@@ -1,14 +1,10 @@
-/* --bg::rgb(107,150,166);
- */
-
-const Trendy_Metropolitan = {
-  bg: "rgba(0, 0, 0, 0) linear-gradient(to right bottom, rgb(122, 144, 158) 0%, rgb(75, 92, 103) 100%) no-repeat scroll 100% center",
-  darkaqua: "#488a99",
-  sage: "#B3BB8B",
-  charcoal: "#6F8695",
-  gold: "#dbae58",
-  pinetree: "#1f271b",
-  grey: "#b4b4b4",
+// https://colorhunt.co/palette/f0ebe3e4dccf7d9d9c576f72
+exports.Trendy_Metropolitan = {
+  bg: "",
+  paper: "#E4DCCF",
+  darkleaf: "#576F72",
+  papyrus: "#F0EBE3",
+  lightLeaf: "#7D9D9C",
 };
 
-exports.Trendy_Metropolitan = Trendy_Metropolitan;
+exports.bgcolors = { PineTree: "#1f271b" };

@@ -1,6 +1,14 @@
+/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./wrap.css */
+
+/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
+
+/*! ../../node_modules/css-loader/dist/runtime/api.js */
+
 /*! ./Form2 */
 
 /*! ./Hotel */
+
+/*! ./HotelWrapper */
 
 /*! ./city */
 
@@ -11,6 +19,8 @@
 /*! ./model */
 
 /*! ./rating */
+
+/*! ./wrap.css */
 
 /*! react */
 
@@ -27,11 +37,11 @@
   \********************************/
 
 /*!********************************!*\
-  !*** ./src/component/color.js ***!
+  !*** ./src/component/model.js ***!
   \********************************/
 
 /*!********************************!*\
-  !*** ./src/component/model.js ***!
+  !*** ./src/component/wrap.css ***!
   \********************************/
 
 /*!*********************************!*\
@@ -41,3 +51,11 @@
 /*!**********************************!*\
   !*** ./src/component/Wrapper.js ***!
   \**********************************/
+
+/*!***************************************!*\
+  !*** ./src/component/HotelWrapper.js ***!
+  \***************************************/
+
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/component/wrap.css ***!
+  \*************************************************************************************************************/
