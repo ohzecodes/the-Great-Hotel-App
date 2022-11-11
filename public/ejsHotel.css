@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
+
+.stars {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+body {
+  background-color: #2c2c34;
+}
+
+.stars > * {
+  padding: 0 !important;
+}
+main {
+  background-color: transparent;
+  overflow: hidden;
+  height: max-content;
+  height: 100%;
+}
+main .container {
+  overflow: hidden;
+}
+main .row {
+  background-color: #fff;
+  padding: 30px 0px;
+  height: 100%;
+}
+p.review {
+  font-size: large;
+  word-break: break-all;
+  word-wrap: break-word;
+  margin: 0 1rem;
+}
+body {
+  font-family: "Montserrat";
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info > .img {
+  border-radius: 100%;
+  margin-top: 20px;
+  width: 300px;
+}
+
+.info > ul {
+  display: block;
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+.info ul > li {
+  margin-top: 20px;
+}
+
+.average-rating {
+  margin: 8px;
+}
+
+.average-rating > svg {
+  height: 50px;
+  width: 50px;
+}
+
+.reviewandrate {
+  display: flex;
+  justify-content: left;
+  border: 2px solid black;
+  margin-top: 20px;
+  border-radius: 10px;
+  align-content: center;
+  width: 500px;
+}
+.reviewandrate:hover {
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+
+.hover {
+  width: min-content;
+  text-align: center;
+  background-color: black;
+  color: white;
+  text-transform: capitalize;
+  padding: 2px;
+  border-bottom-left-radius: 10px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  height: 97px;
+}
+
+li > h1 {
+  text-align: center;
+  font-weight: 400;
+}
+@media only screen and (max-width: 1000px) {
+  .reviewandratecon > * {
+    margin: 10px auto;
+  }
+}

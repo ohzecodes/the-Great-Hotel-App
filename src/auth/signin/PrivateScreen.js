@@ -26,7 +26,7 @@ const PrivateScreen = () => {
         setError("You are not authorized please login");
       }
     };
-
+    console.log(error);
     fetchPrivateDate();
   }, []);
   return error ? (

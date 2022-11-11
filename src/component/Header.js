@@ -7,6 +7,11 @@ class Header extends React.Component {
     super(props);
   }
   render() {
+    let linkColor = {
+      color: "white",
+      width: "5%",
+      margin: "auto 15px auto 0",
+    };
     return (
       <div
         className="row"
@@ -63,17 +68,17 @@ class Header extends React.Component {
         {this.props.location !== "login" ? (
           <>
             {this.props.user == null ? (
-              <Link to="/login" style={{ color: "white", width: "5%" }}>
+              <Link to="/login" style={linkColor}>
                 Login
               </Link>
             ) : (
-              <Link to="/logout" style={{ color: "white", width: "5%" }}>
+              <Link to="/logout" style={linkColor}>
                 Logout
               </Link>
             )}
           </>
         ) : (
-          <Link to="/" style={{ color: "white", width: "5%" }}>
+          <Link to="/" style={linkColor}>
             Home
           </Link>
         )}
