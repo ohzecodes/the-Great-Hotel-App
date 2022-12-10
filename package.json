@@ -7,6 +7,7 @@
     "dev": "nodemon app.js",
     "start": "node app.js",
     "watch": "webpack --watch",
+    "build":"npx webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "key": "chmod 764 ./key.sh && ./key.sh"
   },
