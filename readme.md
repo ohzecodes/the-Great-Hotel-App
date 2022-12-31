@@ -2,17 +2,55 @@
 
 ## Overview
 
-This was a final project for my Full Stack Web Development Course (CPSC 2600). This was a solitary project that enabled me to build a web Application to rate hotels (just like trip-advisor).
+This is a web application for rating hotels, similar to the popular site TripAdvisor. It was developed as part of My Full Stack Web Development Course (CPSC 2600) as a final project, and it allowed me to showcase my skills and demonstrate my ability to create a functional web application from start to finish.
 
-The purpose of this project was to demonstrate the MERN stack skills that we acquired in class.
+### Prerequisites
 
-## Project timeline.
+1. Have NodeJS and npm installed for building the project
+
+### Purpose
+
+The Purpose of this project was to demonstrate the MERN stack skills that we acquired in class.
+
+### Scope
+
+The following items are in scope for this build:
+
+- Authentication
+- Adding, and Viewing hotels
+- Rating a Hotel
+
+The following items are in not scope for this build:
+
+- Deleting an Hotel
+- Updating an Hotel
+- User profiles
+
+## Project timeline
 
 The class was given 15 days to build an entire application with these [technologies](#Technologies-used)
+
+### This project demonstrates
 
 - My technical skillset
 - Ability to learn fast
 - Ability to work under pressure
+
+## Usage
+
+##### Install Software
+
+1.  To get started you will need to install as mentioned in the [Prerequisites Section](#Prerequisites):
+
+    1. NodeJS
+    2. Npm
+
+##### Cloning repository & Variable Adding & installing dependencies & running server
+
+2. Clone this repository then add the following variables to /src/auth/connect.php
+3. run `npm i` to install the dependencies for the project
+4. run `npm run key` to enter your MongoDB connection string and other
+5. run `npm run dev` to run your server locally
 
 ## Technologies used
 
@@ -37,10 +75,7 @@ The class was given 15 days to build an entire application with these [technolog
 
 ### Blockers
 
-- Time
-- We were limited to the concepts learned in class. This was to solidify understanding.
-- Heroku for deployment: so images are removed after a while, replace by a placeholder image
-- Spend a bit more time on the UI
+- Render for deployment: so images are removed after a while, replace by a placeholder image
 
 #### If I were to make this project again, I would:
 
@@ -50,30 +85,24 @@ The class was given 15 days to build an entire application with these [technolog
 2.  Step by Step forms
 3.  Employ Redux
 
-## Aproach taken
+## Form Input
 
-I knew I had limited time to work on this project so planing was exremely important. I started off with sketching the front end on a white board. Then, I worked on integrating the mongodb and other related functions and build my apis, then after building my fronend, I worked on validating the data. Lastly, I saw if there is any need of anything else to work on.
+### First form (New Hotel Form):
 
-## Usage
-
-run `npm run key` to enter your mongo connection string
-
-### First form:
-
-- hotel name should be unique
-- name, city, and streetaddress should be 5 or more characters
+- Hotel name should be unique
+- name, city, and street address should be 5 or more characters
 
 - Image:
   - as of this moment only one image is allowed per hotel
-  - ImageName: must be alphanumeric charecters only
+  - ImageName: must be alphanumeric characters only
   - Image size must not be bigger than 5MB.
   - Images must have a unique name.
   - each hotel has an image-> the user cannot submit the form without image
   - hotels cannot stay without a picture.
-  - Images may be added on the storage if the hotel is not there meaning eventhough if there is an error on validation still the image will be posted. The user is expected to fix the problem if validation error .
-  - images are handled by multer which is an multiware for multipart form data handling ---> link for this is in the reference section.
+  - Images may be added on the storage if the hotel is not there meaning even though if there is an error on validation still the image will be posted. The user is expected to fix the problem if validation error.
+  - images are handled by Multer which is an middleware for multipart form data handling ---> link for this is in the reference section.
 
-## Second Form
+## Second Form(Review an Existing Hotel)
 
 User needs to select the hotel and then use the stars to rate his stay.
 
@@ -82,7 +111,6 @@ User needs to select the hotel and then use the stars to rate his stay.
 #### Middleware
 
 - multer --> filehandling
-- express-readme --> for the man page https://thegreathotelapp.herokuapp.com/man
 
 - sample data images
 
@@ -111,4 +139,4 @@ User needs to select the hotel and then use the stars to rate his stay.
 
 ## Hosting
 
-Serving the project at [hotel App](https://thegreathotelapp.herokuapp.com/)
+Serving the project at [hotel App](greathotel1.onrender.com/)
