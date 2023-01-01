@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a web application for rating hotels, similar to the popular site TripAdvisor. It was developed as part of My Full Stack Web Development Course (CPSC 2600) as a final project, and it allowed me to showcase my skills and demonstrate my ability to create a functional web application from start to finish.
+The Hotel Rating Web Application is a platform for reviewing and rating hotels, similar in concept to the well-known TripAdvisor. This was a final project for the Full Stack Development course. This course covered the MongoDB, ExpressJS, ReactJS and NodeJS Stack. It provided me with the opportunity to demonstrate my capabilities in creating a Functional Web Application from conception to completion, and allowed me to showcase my skills in web development.
 
 ### Prerequisites
 
@@ -18,12 +18,12 @@ The following items are in scope for this build:
 
 - Authentication
 - Adding, and Viewing hotels
-- Rating a Hotel
+- Rating a hotel
 
 The following items are in not scope for this build:
 
-- Deleting an Hotel
-- Updating an Hotel
+- Deleting a hotel
+- Updating a hotel
 - User profiles
 
 ## Project timeline
@@ -41,7 +41,6 @@ The class was given 15 days to build an entire application with these [technolog
 ##### Install Software
 
 1.  To get started you will need to install as mentioned in the [Prerequisites Section](#Prerequisites):
-
     1. NodeJS
     2. Npm
 
@@ -55,9 +54,9 @@ The class was given 15 days to build an entire application with these [technolog
 ## Technologies used
 
 - Deployment
-  - Heroku
+  - Render
 - Backend
-  - Express JS
+  - ExpressJS
   - MongoDB
   - NodeJS
 - Frond End
@@ -89,18 +88,17 @@ The class was given 15 days to build an entire application with these [technolog
 
 ### First form (New Hotel Form):
 
-- Hotel name should be unique
-- name, city, and street address should be 5 or more characters
+- Hotel Name Should be unique
+- Name, city, and street address should be 5 or more characters
 
 - Image:
-  - as of this moment only one image is allowed per hotel
+  - As of this moment only one image is allowed per hotel
   - ImageName: must be alphanumeric characters only
   - Image size must not be bigger than 5MB.
   - Images must have a unique name.
-  - each hotel has an image-> the user cannot submit the form without image
-  - hotels cannot stay without a picture.
-  - Images may be added on the storage if the hotel is not there meaning even though if there is an error on validation still the image will be posted. The user is expected to fix the problem if validation error.
-  - images are handled by Multer which is an middleware for multipart form data handling ---> link for this is in the reference section.
+  - Each hotel has an image-> the user cannot submit the form without image
+  - Hotels cannot stay without a picture.
+  - images are handled by Multer which is an middleware for multipart form data handling -> link for this is in the reference section.
 
 ## Second Form(Review an Existing Hotel)
 
@@ -110,7 +108,7 @@ User needs to select the hotel and then use the stars to rate his stay.
 
 #### Middleware
 
-- multer --> filehandling
+- [Multer](https://www.npmjs.com/package/multer)
 
 - sample data images
 
@@ -122,21 +120,15 @@ User needs to select the hotel and then use the stars to rate his stay.
 
 - tutorials
 
-  - https://youtu.be/XeiOnkEI7XI
-  - https://youtu.be/9Qzmri1WaaE
-
-- Used from bootstap:
-
-- https://getbootstrap.com/docs/4.0/components/card/ --> for displaying the hotel element
-- https://getbootstrap.com/docs/4.0/components/modal/ --> for displaying comments
-- https://getbootstrap.com/docs/4.0/layout/grid/ --> grid system
+  - [TutorialTwo] (https://youtu.be/XeiOnkEI7XI)
+  - [TutorialTwo] (https://youtu.be/9Qzmri1WaaE)
 
 - using bootstrap with fontawesome
-  - bootstrap : https://getbootstrap.com/
-  - font Awesome: https://fontawesome.com/
-  - logo -- https://looka.com/editor/86952643
-  - react icons -- https://react-icons.github.io/react-icons/
+  - [Bootstrap](https://getbootstrap.com/)
+  - [Font Awesome](https://fontawesome.com/)
+  - [Logo](https://looka.com/editor/86952643)
+  - [React Icons](https://react-icons.github.io/react-icons/)
 
 ## Hosting
 
-Serving the project at [hotel App](greathotel1.onrender.com/)
+Serving the project at [Hotel App](greathotel1.onrender.com/)
