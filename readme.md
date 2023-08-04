@@ -46,10 +46,10 @@ The class was given 15 days to build an entire application with these [technolog
 
 ##### Cloning repository & Variable Adding & installing dependencies & running server
 
-2. Clone this repository then add the following variables to /src/auth/connect.php
-3. run `npm i` to install the dependencies for the project
-4. run `npm run key` to enter your MongoDB connection string and other
-5. run `npm run dev` to run your server locally
+
+2. run `npm i` to install the dependencies for the project
+3. run `npm run key` to enter your MongoDB connection string and other
+4. run `npm run dev` to run your server locally
 
 ## Technologies used
 
